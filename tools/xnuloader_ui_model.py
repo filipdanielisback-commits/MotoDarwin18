@@ -81,12 +81,12 @@ class MenuModel:
         return [i for i, item in enumerate(self.items) if item.enabled]
 
     def navigate(self, direction: str) -> str | None:
+        if direction not in {"previous", "next"}:
+            raise ValueError("direction must be previous or next")
         enabled = self._enabled_indices()
         if not enabled:
             self._focus = None
             return None
-        if direction not in {"previous", "next"}:
-            raise ValueError("direction must be previous or next")
         if self._focus not in enabled:
             self._focus = enabled[0]
         else:
