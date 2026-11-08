@@ -187,3 +187,12 @@ Added [XNU Early Platform Service Dependency Inventory](docs/XNU_EARLY_PLATFORM_
 The highest-priority open areas remain the firmware entry/boot-argument contract, SecureDT and required `/chosen` properties, exact memory ownership, machine identification, CPU entry assumptions, interrupt/timebase integration, and target Platform Expert services. Shared hanoip/SDMMAGPIE hardware descriptions remain family-level evidence only.
 
 This is a source-derived documentation milestone; it does not implement or validate an XNU port.
+
+
+## 11. Secure Device Tree requirements analysis — 2026-11-08
+
+Added [Secure Device Tree Requirements Analysis](docs/SECURE_DEVICE_TREE_REQUIREMENTS.md), based on pinned `xnu-11215.1.10` source for `device_tree.h`, `device_tree.c`, `pe_init.c`, `pe_identify_machine.c`, and `arm_init.c`.
+
+Key finding: the reviewed XNU SecureDT code walks an Apple-specific node/property record layout. It must not be assumed to accept a standard Linux FDT blob directly. The reviewed ARM64 startup path requires `/chosen/dram-base` and `/chosen/dram-size`; early machine identification also consumes CPU and SoC/interrupt/timer node conventions. The actual XT2135-2 firmware handoff format and property contract remain unknown.
+
+This is a source/documentation milestone only. No target tree has been extracted, converted, passed to a kernel, or tested on the handset.
