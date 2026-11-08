@@ -11,6 +11,7 @@ This folder contains MotoDarwin18-authored analysis of selected upstream XNU fil
 - [Pinned XNU source verification](PINNED_SOURCE_VERIFICATION.md) — Exact declarations and selected consumer paths checked at `xnu-11215.1.10`.
 - [ARM64 configuration-dependent startup audit](ARM64_CONFIGURATION_DEPENDENCY_AUDIT.md) — Separates ARM64 mechanisms, XNU/Apple platform contracts, build-time branches, and XT2135-2 unknowns.
 - [SecureDT contract crosswalk](SECUREDT_CONTRACT_CROSSWALK.md) — Classifies early, gated, later-phase, optional and conditional SecureDT consumers against Hanoip evidence.
+- [Community Hanoip U-Boot FDT evidence audit](../research/firmware/HANOIP_COMMUNITY_UBOOT_DTB_EVIDENCE_AUDIT.md) — Reviews a concrete community Linux FDT sample and explains why it is not exact XT2135-2 firmware evidence.
 
 ## Source-version status
 
