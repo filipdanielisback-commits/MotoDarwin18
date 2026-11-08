@@ -169,3 +169,12 @@ A community-maintained Linux/Android source tree for the shared Moto G40 Fusion 
 - **Memory:** reserved-memory carveouts are documented, but the complete physical memory map remains unknown.
 
 See [Hanoip / SDMMAGPIE platform evidence](research/soc/HANOIP_PLATFORM_EVIDENCE.md). The shared source tree covers related models and contains board-revision overlays; it does not prove a working XNU port or exact XT2135-2 compatibility.
+
+
+## 9. Boot ABI compatibility analysis — 2026-11-08
+
+The selected XNU ARM64 boot-argument declarations and several startup consumers have been verified against the pinned `xnu-11215.1.10` source. A new [Boot ABI Compatibility Gap Analysis](docs/BOOT_ABI_COMPATIBILITY_GAPS.md) compares those requirements with available Moto G60 XT2135-2 and shared hanoip-family evidence.
+
+Key conclusion: compatibility is **not demonstrated**. The exact firmware handoff contract, target memory map, device-tree contract, CPU entry state, and target-specific platform services remain unknown. Shared GICv3, timer, storage, display, wireless, and power descriptions are family-level clues only.
+
+This is a research assessment, not a device test. No kernel, loader, bootable image, or target integration is implemented.
