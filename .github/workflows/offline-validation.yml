@@ -35,6 +35,9 @@ jobs:
       - name: Validate XNULoader platform services
         run: python tools/validate_platform_services.py
 
+      - name: Run driver core tests
+        run: python -m unittest discover -s tests -p "test_driver_core.py" -v
+
       - name: Run XNULoader UI model tests
         run: python -m unittest discover -s tests -p "test_xnuloader_ui_model.py" -v
 
