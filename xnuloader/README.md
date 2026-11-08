@@ -21,7 +21,8 @@ This directory tracks the design questions for a possible independently develope
 | [PLATFORM_SERVICES.md](PLATFORM_SERVICES.md) | Pre-OS display and pointer service contracts, lifecycle, and capability evidence | Specification only |
 | [platform-services.example.json](platform-services.example.json) | Unknown-by-default descriptive service capability manifest | Host-test fixture |
 | [UI_CORE_DESIGN.md](UI_CORE_DESIGN.md) | Platform-neutral menu layout, input contract, and UI state requirements | Design specification only |
-| [DISPLAY_RENDERING_DESIGN.md](DISPLAY_RENDERING_DESIGN.md) | Display mode metadata, pixel-format boundaries, responsive layout, and render-backend requirements | Design specification and host model only |\n| [TOUCHSCREEN_INPUT_DESIGN.md](TOUCHSCREEN_INPUT_DESIGN.md) | Touch event contract, contact lifecycle, error handling, and target evidence requirements | Design specification and host model only |
+| [DISPLAY_RENDERING_DESIGN.md](DISPLAY_RENDERING_DESIGN.md) | Display mode metadata, pixel-format boundaries, responsive layout, and render-backend requirements | Design specification and host model only |
+| [TOUCHSCREEN_INPUT_DESIGN.md](TOUCHSCREEN_INPUT_DESIGN.md) | Touch event contract, contact lifecycle, error handling, and target evidence requirements | Design specification and host model only |\n| [TOUCHSCREEN_INPUT_DESIGN.md](TOUCHSCREEN_INPUT_DESIGN.md) | Touch event contract, contact lifecycle, error handling, and target evidence requirements | Design specification and host model only |
 | [COMPATIBILITY.md](COMPATIBILITY.md) | Platform and loader assumptions that remain unverified | Initial unknowns |
 
 ## What a loader is responsible for, conceptually
