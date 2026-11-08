@@ -1,3 +1,25 @@
+## 2026-11-08 — XT2135-2 public firmware/source provenance audit
+
+### Question
+
+Does public manufacturer material now establish the exact XT2135-2 firmware-to-OS handoff contract required for comparison with pinned XNU?
+
+### Findings
+
+- Motorola's EU product-compliance index identifies XT2135-2 as MC38C / moto g60 vision, distinct from XT2135-1 / MC38B.
+- Motorola's `MotorolaMobilityLLC/kernel-msm` source-publication tracker links exact XT2135-2 European Android firmware build identifiers to Motorola kernel source release tags `MMI-S2RIS32.32-20-9-9-2-1` and `MMI-S2RIS32.32-20-9-9-2-3`.
+- This improves provenance for the Android/Linux kernel source associated with those firmware builds.
+- The Motorola kernel-source releases do not establish the contents of the boot firmware, bootloader implementation, firmware-to-OS entry ABI, XNU `boot_args` producer semantics, SecureDT representation, memory ownership, or pre-OS display/input protocols.
+- The shared `hanoip` Android/Linux source remains family-level evidence. It does not map an exact XT2135-2 unit to DVT1 or DVT2.
+
+### Decision
+
+The public source trail is useful, but the exact firmware-to-XNU handoff remains **unknown**. No kernel source patch or compatibility claim is justified by these sources.
+
+### Sources and detailed matrix
+
+See [XT2135-2 Public Firmware and Source Evidence Register](../research/firmware/XT2135_2_PUBLIC_SOURCE_EVIDENCE.md).
+
 # Research log
 
 ## 2026-11-08 — Hanoip / SDMMAGPIE source-tree review
