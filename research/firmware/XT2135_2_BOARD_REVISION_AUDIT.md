@@ -101,3 +101,15 @@ This milestone is documentation and public-source review only. It does not invol
 - [XT2135-2 public source evidence register](XT2135_2_PUBLIC_SOURCE_EVIDENCE.md)
 
 *Project: MotoDarwin18*
+
+## Follow-up: public service-document search — 2026-11-08
+
+A further public-source review found Motorola's official Right to Repair page, which states that parts lists, service manuals and detailed schematics are provided through its repair-document channel. The linked partner portal returned a JavaScript/anti-bot interstitial in this review, so no XT2135-2-specific document, assembly number or PCB revision was verified.
+
+A third-party EletrônicaBR listing describes a broad XT2135-X / G60 / G40 motherboard service-document package for the Hanoi platform. The download is restricted, the listing groups multiple models, and it does not identify MC38C's board revision or DVT mapping. Another third-party schematic index advertises an XT2135-x component-location item but does not expose a verifiable revision or underlying document contents.
+
+Motorola kernel-source issue #574 does independently confirm a source-publication trail for a named XT2135-2 Android 12 build and the Motorola release tag `MMI-S2RIS32.32-20-9-9-2-3`. It still does not describe the firmware-to-XNU handoff.
+
+Detailed assessment: [XT2135-2 Firmware and Board-Revision Documentation Follow-up](XT2135_2_FIRMWARE_BOARD_REVISION_FOLLOWUP.md).
+
+**Decision unchanged:** no exact PCB revision, DVT1/DVT2 mapping or firmware handoff contract has been established. Do not select an overlay or make revision-specific platform changes.
