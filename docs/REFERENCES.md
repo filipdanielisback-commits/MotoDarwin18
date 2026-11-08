@@ -4,12 +4,14 @@ This list prioritizes primary sources. A link is a starting point for research, 
 
 ## Device documentation
 
-- Motorola Moto G60 Smartphone User Guide. A mirrored copy identifies the product as Moto G60 and lists model XT21351 / XT2135-2: [Manualzz copy](https://manualzz.com/doc/70255715/motorola-moto-g60-smartphone-user-guide). Prefer an official Motorola-hosted copy when available.
+- Motorola, [EU Declaration of Conformity — XT2135-2 / MC38C (PDF)](https://en-us.support.motorola.com/ci/fattach/get/79315385/1664922506/redirect/1/filename/XT2135-2_Moto%2BG60%2BVision%2BMC38C%2BRED%2BDoC.pdf), issued 2021-03-05. Identifies the market model as moto g60 XT2135-2 and lists regulatory radio capabilities.
+- Motorola, [Declarations of Conformity index](https://en-emea.support.motorola.com/app/answers/detail/a_id/167829/~/declarations-of-conformity). Maps XT2135-2 to the Moto G60 Vision / MC38C type.
+- Motorola Moto G60 Smartphone User Guide. [Manualzz mirror](https://manualzz.com/doc/70255715/motorola-moto-g60-smartphone-user-guide). Secondary source; prefer an official Motorola-hosted copy when available.
 
 ## Qualcomm platform documentation
 
 - Qualcomm, [Snapdragon 732G Mobile Platform](https://www.qualcomm.com/smartphones/products/7-series/snapdragon-732g-mobile-platform).
-- Qualcomm, [Snapdragon 732G Mobile Platform product brief (PDF)](https://www.qualcomm.com/content/dam/qcomm-martech/dm-assets/documents/qualcomm-snapdragon-732g-mobile-platform-product-brief.pdf).
+- Qualcomm, [Snapdragon 732G Mobile Platform product brief (PDF)](https://www.qualcomm.com/content/dam/qcomm-martech/dm-assets/documents/qualcomm-snapdragon-732g-mobile-platform-product-brief.pdf). Manufacturer-documented SoC features; optional features may depend on OEM/carrier selection.
 - Qualcomm, [Snapdragon 732G announcement](https://www.qualcomm.com/news/releases/2020/08/qualcomm-announces-snapdragon-732g-improve-high-tier-mobile-gaming).
 
 ## Darwin / XNU background
