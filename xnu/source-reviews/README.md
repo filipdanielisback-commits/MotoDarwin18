@@ -9,6 +9,7 @@ This folder contains MotoDarwin18-authored analysis of selected upstream XNU fil
 - [`pexpert/pexpert/arm64/boot.h`](ARM64_BOOT_HEADER_REVIEW.md) — ARM64 boot handoff structure and validation requirements.
 - [`osfmk/arm/arm_init.c`](ARM_INIT_REVIEW.md) — Boot CPU initialization order and dependencies on pexpert.
 - [Pinned XNU source verification](PINNED_SOURCE_VERIFICATION.md) — Exact declarations and selected consumer paths checked at `xnu-11215.1.10`.
+- [ARM64 configuration-dependent startup audit](ARM64_CONFIGURATION_DEPENDENCY_AUDIT.md) — Separates ARM64 mechanisms, XNU/Apple platform contracts, build-time branches, and XT2135-2 unknowns.
 
 ## Source-version status
 
@@ -19,6 +20,6 @@ The earlier individual review notes remain provisional where they contain observ
 ## Research status
 
 - Pinned declarations and selected consumers: verified.
-- Full boot ABI producer/consumer audit: incomplete.
+- Boot ABI and configuration-dependent startup consumer review: expanded; exact target producer contract remains unknown.
 - Moto G60 implementation: not started.
 - XNU host build, emulator test, or target test: not performed.
