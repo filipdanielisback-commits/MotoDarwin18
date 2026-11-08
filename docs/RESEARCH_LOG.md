@@ -40,6 +40,33 @@ See [XT2135-2 Public Firmware and Source Evidence Register](../research/firmware
 
 # Research log
 
+## 2026-11-08 — Pinned XNU ARM64 configuration-dependent startup audit
+
+### Scope
+
+Reviewed the pinned `xnu-11215.1.10` ARM64 startup assembly, boot CPU initialization, Platform Expert, machine-identification/interrupt-timebase discovery, VM setup, CPU paths, board configuration and iPhoneOS ARM64 build template.
+
+### Findings
+
+- ARM64 instructions and architectural facilities are only the lowest layer. XNU still consumes its own boot-argument ABI and depends on SecureDT, machine identification, Platform Expert, memory ownership, interrupt/timebase services and a matching build configuration.
+- Some Apple-named machine-routine hooks have empty non-Apple ARM64 implementations, while Apple-family register-specific paths are guarded. This is a useful portability distinction, but it does not make the complete startup path firmware-agnostic.
+- The pinned Platform Expert source expects SecureDT structures/properties for SoC-base discovery, CPU information, interrupt-controller and timer discovery. The ARM64 boot CPU path also requires `/chosen/dram-base` and `dram-size`.
+- The shared Hanoip Linux source's GICv3/PDC and timer clues do not prove that the XT2135-2 firmware supplies XNU's expected SecureDT node/property contract.
+- ARM64 VM and CPU behavior varies with build options including `ARM_LARGE_MEMORY`, `XNU_MONITOR`, `KASAN`, `CONFIG_SPTM`, `USE_APPLEARMSMP`, and Apple-family/SoC macros. No target-appropriate Moto XNU board/build profile is established in the reviewed upstream board configuration.
+
+### Decision
+
+No executable patch is justified. The audit found concrete platform integration requirements, but no demonstrated upstream XNU source defect or exact XT2135-2 producer/consumer mismatch. Keep source changes deferred.
+
+### Detailed report
+
+See [ARM64 Configuration-Dependent Startup Audit](../xnu/source-reviews/ARM64_CONFIGURATION_DEPENDENCY_AUDIT.md).
+
+### Next task
+
+Create a SecureDT contract crosswalk covering early mandatory, optional, configuration-gated and later-use properties, then compare it with Hanoip source evidence without upgrading family clues to exact-model facts.
+
+
 ## 2026-11-08 — Hanoip / SDMMAGPIE source-tree review
 
 ### Question
