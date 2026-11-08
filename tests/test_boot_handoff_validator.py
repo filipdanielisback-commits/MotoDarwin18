@@ -47,6 +47,12 @@ class BootHandoffValidatorTests(unittest.TestCase):
         with self.assertRaises(ValidationError):
             validate_manifest(data)
 
+    def test_family_evidence_cannot_confirm_target_identity(self):
+        data = self.valid()
+        data["target"]["identity_status"] = "confirmed"
+        with self.assertRaises(ValidationError):
+            validate_manifest(data)
+
     def test_bool_not_accepted_as_integer(self):
         data = self.valid()
         data["boot_handoff"]["revision"] = True
