@@ -79,3 +79,10 @@ Motorola confirms XT2135-2 / MC38C / moto g60 vision. The public shared hanoip A
 See [XT2135-2 Confirmed Platform Facts and XNU Compatibility Review](../research/firmware/XT2135_2_CONFIRMED_PLATFORM_FACTS.md) for the consolidated evidence matrix.
 
 Key distinction: Motorola confirms XT2135-2 / MC38C identity and regulatory radio capabilities, and its public tracker links named XT2135-2 Android builds to Android/Linux kernel source releases. Neither establishes the board revision, installed component population, firmware-to-XNU ABI, memory ownership, SecureDT handoff or pre-OS service availability. Detailed Hanoip/SDMMAGPIE hardware descriptions remain family-level clues.
+
+
+## Public firmware / board-revision documentation follow-up — 2026-11-08
+
+The additional public-source review found Motorola's official Right to Repair documentation channel, but the linked partner portal could not be inspected and no XT2135-2-specific board assembly or revision was verified. Third-party listings describe broad XT2135-X / G60 / G40 service-document packages but do not authenticate MC38C-specific board population or map the phone to DVT1/DVT2.
+
+Motorola issue #574 confirms an Android kernel-source publication trail for a named XT2135-2 firmware build, not the firmware-to-XNU entry contract. Keep PCB revision, DVT overlay, exact BOM, firmware entry state, memory ownership and device-tree handoff unknown. See [XT2135-2 Firmware and Board-Revision Documentation Follow-up](../research/firmware/XT2135_2_FIRMWARE_BOARD_REVISION_FOLLOWUP.md).
