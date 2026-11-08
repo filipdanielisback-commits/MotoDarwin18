@@ -67,3 +67,8 @@ The shared hanoip / SDMMAGPIE source tree narrows several research questions, bu
 ## Public source provenance update — 2026-11-08
 
 Motorola's public kernel-source tracker links two XT2135-2 European Android firmware build identifiers to published `kernel-msm` source release tags. This confirms a source-publication trail for the Android/Linux kernel side only. It does not establish a firmware-to-XNU handoff, UEFI availability, XNU `boot_args` producer semantics, SecureDT format, or exact board-revision mapping. See [XT2135-2 Public Firmware and Source Evidence Register](../research/firmware/XT2135_2_PUBLIC_SOURCE_EVIDENCE.md).
+
+
+## Board-revision evidence update — 2026-11-08
+
+Motorola confirms XT2135-2 / MC38C / moto g60 vision. The public shared hanoip Android device tree confirms the software-family identity but does not identify a physical PCB revision or map XT2135-2 to DVT1 or DVT2. A third-party broad XT2135-X service-document listing is unverified and not sufficient to resolve the mapping. Keep board revision and overlay selection open. See [XT2135-2 Board-Revision Evidence Audit](../research/firmware/XT2135_2_BOARD_REVISION_AUDIT.md).
