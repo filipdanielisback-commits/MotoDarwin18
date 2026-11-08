@@ -18,6 +18,8 @@ This directory tracks the design questions for a possible independently develope
 | [HAKIOS_ARCHITECTURE_COMPARISON.md](HAKIOS_ARCHITECTURE_COMPARISON.md) | Comparison of HakiOS's public loader architecture with MotoDarwin18 research | Source analysis |
 | [INTERFACE_DESIGN.md](INTERFACE_DESIGN.md) | On-device interface, touchscreen, display, fallback input, and evidence gates | Design specification only |
 | [Pre-Android display and touch research](../research/display-touch/MOTO_G60_PREANDROID_DISPLAY_TOUCH.md) | Moto G60 family evidence and UEFI display/touch service requirements | Research only |
+| [PLATFORM_SERVICES.md](PLATFORM_SERVICES.md) | Pre-OS display and pointer service contracts, lifecycle, and capability evidence | Specification only |
+| [platform-services.example.json](platform-services.example.json) | Unknown-by-default descriptive service capability manifest | Host-test fixture |
 | [COMPATIBILITY.md](COMPATIBILITY.md) | Platform and loader assumptions that remain unverified | Initial unknowns |
 
 ## What a loader is responsible for, conceptually
