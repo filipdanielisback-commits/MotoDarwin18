@@ -154,3 +154,18 @@ Do not use “working”, “bootable”, “supported”, or “compatible” w
 ---
 
 **Current conclusion:** MotoDarwin18 has a growing documentation and research foundation. The next meaningful progress is evidence gathering and feasibility analysis—not claiming a working kernel, loader, or iOS 18 port.
+
+
+## 8. Device and SoC research update — 2026-11-08
+
+A community-maintained Linux/Android source tree for the shared Moto G40 Fusion / Moto G60 `hanoip` family has narrowed several platform questions. These are provisional family-level findings, not exact-unit confirmation.
+
+- **Interrupts:** shared SDMMAGPIE DTS describes GICv3 and Qualcomm PDC.
+- **Timers:** Armv8 generic timer is listed at 19.2 MHz; a memory-mapped timer block is also described.
+- **Storage:** source tree describes embedded UFS and SD-card paths; exact flash component remains unknown.
+- **Display:** Hanoi panel file selects a Tianma ILI7807S 678-class MIPI-DSI panel description with 60/120 Hz modes; exact XT2135-2 panel still needs confirmation.
+- **Wireless:** WCN3990 Bluetooth node and CLD3 WLAN module appear in shared sources; exact Wi-Fi combo-chip remains unknown.
+- **Power:** PM6150/PM6150L and MC50 battery profiles appear in the Hanoi overlays; exact unit population remains unverified.
+- **Memory:** reserved-memory carveouts are documented, but the complete physical memory map remains unknown.
+
+See [Hanoip / SDMMAGPIE platform evidence](research/soc/HANOIP_PLATFORM_EVIDENCE.md). The shared source tree covers related models and contains board-revision overlays; it does not prove a working XNU port or exact XT2135-2 compatibility.
