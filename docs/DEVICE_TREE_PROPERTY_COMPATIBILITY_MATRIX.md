@@ -113,3 +113,10 @@ This work remains documentation and source research. It does not define a device
 ---
 
 **Conclusion:** Several hardware concepts in the shared Hanoip/SDMMAGPIE source tree overlap with what XNU needs, especially CPU topology, interrupt controllers, timers, and memory descriptions. The exact Apple-style property contract, binary tree format, and mandatory DRAM handoff properties are not demonstrated for XT2135-2. Compatibility remains **unknown / not demonstrated**.
+
+
+## 7. Additional community FDT sample — 2026-11-08
+
+The [Community Hanoip U-Boot FDT Evidence Audit](../research/firmware/HANOIP_COMMUNITY_UBOOT_DTB_EVIDENCE_AUDIT.md) adds a pinned expanded Linux DTS sample from a public Hanoip community repository. The file identifies itself as Moto G60 / `motorola,hanoip` / `qcom,sm7150` and contains CPU, memory/reserved-memory, GIC, generic-timer and framebuffer descriptions.
+
+The sample does not contain `dram-base`, `dram-size`, `arm-io`, `interrupt-controller = "master"`, or `device_type = "timer"`. These are file-scoped observations only. The repository describes its Linux-facing FDT as part of its own U-Boot build and does not map the sample to XT2135-2 / MC38C or a physical board revision. It therefore strengthens family-level source evidence but does not establish the target's firmware producer contract.
