@@ -63,3 +63,16 @@ py -3 -m unittest discover -s tests -p "test_boot_handoff*.py" -v
 ```
 
 It checks manifest structure and consistency only. It does not generate boot arguments, infer device memory, or interact with a phone.
+
+## XNULoader platform-services validator
+
+The host-only platform-services validator checks descriptive metadata for the planned display and touch interfaces. Its example manifest intentionally records the Moto G60 services as unknown.
+
+Run from the repository root:
+
+```powershell
+py -3 tools/validate_platform_services.py
+py -3 -m unittest discover -s tests -p "test_platform_services.py" -v
+```
+
+It also contains a pure touch-event model tested with synthetic samples. The validator and model do not access firmware, a touchscreen, a display, ADB, Fastboot, or any connected device. Passing tests do not establish that GOP or UEFI Absolute Pointer is available on the XT2135-2.
