@@ -59,3 +59,9 @@ A future patch proposal must identify a specific incompatible field or semantic,
 **No XNU source compatibility bug has yet been proven.** The documented issue is an unresolved producer/consumer contract. Calling this a completed source fix would be inaccurate. This proposal records the exact evidence needed to justify one.
 
 *Project: MotoDarwin18*
+
+## Follow-up audit
+
+The [ARM64 Boot Contract Compatibility Audit](../../source-reviews/ARM64_BOOT_CONTRACT_AUDIT.md) reviewed the project’s pinned-source records and target evidence on 2026-11-08.
+
+**Decision:** no specific XNU source defect has been demonstrated. The current gap is missing producer-side evidence for XT2135-2. Keep this proposal at **Needs evidence**; do not turn it into an executable source patch until a concrete producer/consumer mismatch is established.
