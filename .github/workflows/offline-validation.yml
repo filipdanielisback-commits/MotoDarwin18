@@ -32,5 +32,8 @@ jobs:
       - name: Validate boot handoff manifest
         run: python tools/validate_boot_handoff.py
 
+      - name: Validate XNULoader platform services
+        run: python tools/validate_platform_services.py
+
       - name: Run unit tests
         run: python -m unittest discover -s tests -v
