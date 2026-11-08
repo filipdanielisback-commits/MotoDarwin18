@@ -50,3 +50,16 @@ Warnings are expected where evidence is based on a shared community device tree 
 ### Limitations
 
 This tool validates documentation structure and evidence labels only. It does not inspect hardware, resolve board revisions, infer register addresses, build XNU, or establish device compatibility. It is offline and read-only.
+
+## Boot handoff manifest validator
+
+The descriptive, offline manifest validator is documented in [boot-handoff/README.md](../boot-handoff/README.md).
+
+Run it from the repository root:
+
+```powershell
+py -3 tools/validate_boot_handoff.py
+py -3 -m unittest discover -s tests -p "test_boot_handoff*.py" -v
+```
+
+It checks manifest structure and consistency only. It does not generate boot arguments, infer device memory, or interact with a phone.
