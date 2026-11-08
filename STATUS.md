@@ -178,3 +178,12 @@ The selected XNU ARM64 boot-argument declarations and several startup consumers 
 Key conclusion: compatibility is **not demonstrated**. The exact firmware handoff contract, target memory map, device-tree contract, CPU entry state, and target-specific platform services remain unknown. Shared GICv3, timer, storage, display, wireless, and power descriptions are family-level clues only.
 
 This is a research assessment, not a device test. No kernel, loader, bootable image, or target integration is implemented.
+
+
+## 10. XNU early platform dependency inventory — 2026-11-08
+
+Added [XNU Early Platform Service Dependency Inventory](docs/XNU_EARLY_PLATFORM_DEPENDENCIES.md). It traces the pinned ARM64 startup path and classifies early dependencies as architecture-generic, Apple-specific, platform-specific, configuration-dependent, or unresolved.
+
+The highest-priority open areas remain the firmware entry/boot-argument contract, SecureDT and required `/chosen` properties, exact memory ownership, machine identification, CPU entry assumptions, interrupt/timebase integration, and target Platform Expert services. Shared hanoip/SDMMAGPIE hardware descriptions remain family-level evidence only.
+
+This is a source-derived documentation milestone; it does not implement or validate an XNU port.
