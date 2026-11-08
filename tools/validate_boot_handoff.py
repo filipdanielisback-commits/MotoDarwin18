@@ -191,7 +191,9 @@ def validate_manifest(data: Any) -> None:
 
     _validate_device_tree(obj["device_tree"])
     _validate_memory_regions(obj["memory_regions"])
-    _validate_evidence(obj["evidence"], "evidence")
+    top_evidence = _validate_evidence(obj["evidence"], "evidence")
+    if identity_status == "confirmed" and not any(e["scope"] == "exact_model" for e in top_evidence):
+        raise ValidationError("target identity cannot be confirmed using family-level evidence")
 
 
 def load_manifest(path: Path) -> Any:
