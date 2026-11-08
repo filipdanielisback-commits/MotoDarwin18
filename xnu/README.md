@@ -14,7 +14,10 @@ This directory contains MotoDarwin18's documentation and, later, project-authore
 | [files/](files/README.md) | Original files proposed for an upstream XNU tree | Provenance guidance only |
 | [scripts/](scripts/README.md) | Reproducible source and patch validation helpers | Safety and design guidance only |
 | [COMPATIBILITY_MATRIX.md](COMPATIBILITY_MATRIX.md) | Subsystem evidence and status | Initial unknowns |
-| [UPSTREAM.md](UPSTREAM.md) | Upstream source selection and provenance | No revision selected |
+| [UPSTREAM.md](UPSTREAM.md) | Upstream source selection and provenance | Provisional `xnu-11215.1.10` baseline |
+| [PEXPERT_REVIEW.md](PEXPERT_REVIEW.md) | ARM64 Platform Expert research | Interface and startup overview |
+| [PLATFORM_INTERFACE_MATRIX.md](PLATFORM_INTERFACE_MATRIX.md) | XNU-to-platform requirements | Evidence-gated interface map |
+| [PLATFORM_PORTING_CHECKLIST.md](PLATFORM_PORTING_CHECKLIST.md) | Research and implementation gates | No device modifications |
 
 ## Upstream XNU areas to understand
 
@@ -46,12 +49,13 @@ This is an orientation map, not a statement that each area needs modification fo
 1. Record the candidate source in [UPSTREAM.md](UPSTREAM.md).
 2. Compare the candidate's documented architecture and platform assumptions with [the platform requirements](../docs/SOC_PLATFORM_REQUIREMENTS.md).
 3. Track evidence and unknowns in [COMPATIBILITY_MATRIX.md](COMPATIBILITY_MATRIX.md).
-4. Propose a patch only when a specific, evidence-backed gap is identified.
-5. Validate source changes in an isolated development environment; this folder does not provide instructions for changing a phone.
+4. Use [PEXPERT_REVIEW.md](PEXPERT_REVIEW.md) and [PLATFORM_INTERFACE_MATRIX.md](PLATFORM_INTERFACE_MATRIX.md) to identify interfaces and missing evidence.
+5. Propose a patch only when a specific, evidence-backed gap is identified.
+6. Validate source changes in an isolated development environment; this folder does not provide instructions for changing a phone.
 
 ## Current assessment
 
-MotoDarwin18 is at the documentation and feasibility stage. There is no supported Moto G60 XNU kernel, boot path, or device driver set at this time.
+MotoDarwin18 is at the documentation and feasibility stage. There is no supported Moto G60 XNU kernel, boot path, or device driver set at this time. The selected XNU tag is a provisional research baseline, not proof that it is the exact XNU build used by a particular iOS 18 release.
 
 ## Primary reference
 
