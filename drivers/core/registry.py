@@ -11,6 +11,8 @@ from dataclasses import dataclass
 from typing import Protocol
 
 from .model import (
+    CapabilityState,
+    DriverCapability,
     DriverDescriptor,
     DriverError,
     DriverErrorCode,
@@ -77,17 +79,22 @@ def validate_descriptor(descriptor: DriverDescriptor) -> None:
 
     seen: set[str] = set()
     for capability in descriptor.capabilities:
+        if not isinstance(capability, DriverCapability):
+            raise InvalidDriverDescriptorError("capabilities must contain DriverCapability values")
         if not isinstance(capability.name, str) or not _IDENTIFIER.fullmatch(capability.name):
             raise InvalidDriverDescriptorError("capability names must be lowercase identifiers")
         if capability.name in seen:
             raise InvalidDriverDescriptorError("capability names must be unique")
         seen.add(capability.name)
-        if not isinstance(capability.state, __import__(
-            "drivers.core.model", fromlist=["CapabilityState"]
-        ).CapabilityState):
+        if not isinstance(capability.state, CapabilityState):
             raise InvalidDriverDescriptorError("capability state is invalid")
         if capability.evidence is not None and not isinstance(capability.evidence, str):
             raise InvalidDriverDescriptorError("capability evidence must be a string or None")
+        if capability.state is not CapabilityState.UNKNOWN:
+            if not isinstance(capability.evidence, str) or not capability.evidence.strip():
+                raise InvalidDriverDescriptorError(
+                    "available or unavailable capabilities require an evidence reference"
+                )
 
 
 class DriverRegistry:
