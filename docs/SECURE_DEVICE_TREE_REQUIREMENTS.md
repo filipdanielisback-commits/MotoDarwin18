@@ -194,3 +194,12 @@ The current Moto G60 family research is based on Linux/Android sources and does 
 **Overall status: SecureDT requirements documented; exact target tree format, producer contract and compatibility remain unknown.**
 
 *Project: MotoDarwin18*
+
+
+## 11. Property compatibility matrix — 2026-11-08
+
+Added the [Device Tree Property Compatibility Matrix](DEVICE_TREE_PROPERTY_COMPATIBILITY_MATRIX.md). It compares the early properties and nodes consumed by pinned `xnu-11215.1.10` with the currently documented Hanoip/SDMMAGPIE Linux source evidence.
+
+The matrix distinguishes conceptual hardware overlap from a demonstrated property-level match. GICv3/PDC, timer descriptions, CPU topology, and reserved-memory entries are useful family-level leads, but they do not establish the Apple-style node names, property encodings, or firmware handoff contract expected by XNU. In particular, the reviewed evidence does not document `/chosen/dram-base` or `/chosen/dram-size`; this is **not observed in reviewed source**, not proof those properties are absent from the target's actual firmware tree.
+
+No exact-model tree was extracted or tested, and no device configuration was changed.
