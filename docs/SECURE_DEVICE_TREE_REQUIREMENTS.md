@@ -203,3 +203,16 @@ Added the [Device Tree Property Compatibility Matrix](DEVICE_TREE_PROPERTY_COMPA
 The matrix distinguishes conceptual hardware overlap from a demonstrated property-level match. GICv3/PDC, timer descriptions, CPU topology, and reserved-memory entries are useful family-level leads, but they do not establish the Apple-style node names, property encodings, or firmware handoff contract expected by XNU. In particular, the reviewed evidence does not document `/chosen/dram-base` or `/chosen/dram-size`; this is **not observed in reviewed source**, not proof those properties are absent from the target's actual firmware tree.
 
 No exact-model tree was extracted or tested, and no device configuration was changed.
+
+
+## 12. Consumer classification crosswalk — 2026-11-08
+
+The detailed [SecureDT Contract Crosswalk](../xnu/source-reviews/SECUREDT_CONTRACT_CROSSWALK.md) separates:
+
+- required early tree and DRAM contracts;
+- the gated SoC-base and /cpus path;
+- later interrupt-controller and timer dependencies;
+- optional CPU-frequency and metadata properties;
+- debug/target-conditional properties.
+
+It also records control-flow nuances and compares these expectations with Hanoip family evidence without claiming an exact XT2135-2 firmware tree. The standard FDT format and XNU SecureDT representation remain distinct; exact target producer semantics, property encoding, pointer lifetime and memory ownership remain unknown. No executable source patch is justified by the current evidence.
