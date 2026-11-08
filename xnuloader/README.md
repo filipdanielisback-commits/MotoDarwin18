@@ -20,6 +20,7 @@ This directory tracks the design questions for a possible independently develope
 | [Pre-Android display and touch research](../research/display-touch/MOTO_G60_PREANDROID_DISPLAY_TOUCH.md) | Moto G60 family evidence and UEFI display/touch service requirements | Research only |
 | [PLATFORM_SERVICES.md](PLATFORM_SERVICES.md) | Pre-OS display and pointer service contracts, lifecycle, and capability evidence | Specification only |
 | [platform-services.example.json](platform-services.example.json) | Unknown-by-default descriptive service capability manifest | Host-test fixture |
+| [UI_CORE_DESIGN.md](UI_CORE_DESIGN.md) | Platform-neutral menu layout, input contract, and UI state requirements | Design specification only |
 | [COMPATIBILITY.md](COMPATIBILITY.md) | Platform and loader assumptions that remain unverified | Initial unknowns |
 
 ## What a loader is responsible for, conceptually
