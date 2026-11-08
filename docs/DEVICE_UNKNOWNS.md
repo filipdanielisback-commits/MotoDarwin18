@@ -19,7 +19,7 @@ See [HANOIP_PLATFORM_EVIDENCE.md](../research/soc/HANOIP_PLATFORM_EVIDENCE.md) f
 | Area | Current finding | Evidence needed / remaining unknown | Status |
 |---|---|---|---|
 | Board | Shared `hanoip` device tree has DVT1 and DVT2 overlays | Map exact XT2135-2 hardware revision to the correct overlay | Open |
-| Boot | Android board configuration and kernel tree exist | Authoritative firmware and handoff documentation for exact model | Open |
+| Boot | Motorola kernel-source publication trail exists for named XT2135-2 Android builds; this is Android/Linux kernel source, not boot-firmware or handoff documentation | Exact firmware-to-OS ABI, boot firmware interface, entry state, memory ownership and exact board revision remain undocumented | Open |
 | CPU | Shared SDMMAGPIE tree describes eight CPU nodes | Confirm exact target topology and exposed firmware description | Probable platform-family evidence |
 | Memory | Kernel tree defines several reserved-memory carveouts | Complete physical RAM map, banks, and exact revision reservations | Open |
 | Interrupts | Shared SoC tree describes GICv3 and Qualcomm PDC | Exact XT2135-2 routing and firmware ownership | Probable platform-family evidence |
@@ -62,3 +62,8 @@ For every resolved item, record:
 The shared hanoip / SDMMAGPIE source tree narrows several research questions, but does not establish a complete exact-model hardware inventory. The full XT2135-2 memory map, board revision, exact wireless chip, and complete peripheral bill of materials remain open.
 
 *Project: MotoDarwin18*
+
+
+## Public source provenance update — 2026-11-08
+
+Motorola's public kernel-source tracker links two XT2135-2 European Android firmware build identifiers to published `kernel-msm` source release tags. This confirms a source-publication trail for the Android/Linux kernel side only. It does not establish a firmware-to-XNU handoff, UEFI availability, XNU `boot_args` producer semantics, SecureDT format, or exact board-revision mapping. See [XT2135-2 Public Firmware and Source Evidence Register](../research/firmware/XT2135_2_PUBLIC_SOURCE_EVIDENCE.md).
