@@ -1,0 +1,32 @@
+# Build outputs
+build/
+out/
+dist/
+*.o
+*.a
+*.so
+*.dylib
+*.elf
+*.bin
+*.img
+
+# Logs and temporary files
+*.log
+tmp/
+temp/
+
+# Editor and operating-system files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets/
