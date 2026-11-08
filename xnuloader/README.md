@@ -2,7 +2,7 @@
 
 This directory tracks the design questions for a possible independently developed XNU loader component within MotoDarwin18.
 
-<badge>Documentation only</badge>
+**Documentation and research only**
 
 **Current status:** no loader implementation, firmware integration, boot protocol implementation, or Moto G60 boot support exists here.
 
@@ -21,6 +21,7 @@ This directory tracks the design questions for a possible independently develope
 | [PLATFORM_SERVICES.md](PLATFORM_SERVICES.md) | Pre-OS display and pointer service contracts, lifecycle, and capability evidence | Specification only |
 | [platform-services.example.json](platform-services.example.json) | Unknown-by-default descriptive service capability manifest | Host-test fixture |
 | [UI_CORE_DESIGN.md](UI_CORE_DESIGN.md) | Platform-neutral menu layout, input contract, and UI state requirements | Design specification only |
+| [DISPLAY_RENDERING_DESIGN.md](DISPLAY_RENDERING_DESIGN.md) | Display mode metadata, pixel-format boundaries, responsive layout, and render-backend requirements | Design specification and host model only |
 | [COMPATIBILITY.md](COMPATIBILITY.md) | Platform and loader assumptions that remain unverified | Initial unknowns |
 
 ## What a loader is responsible for, conceptually
