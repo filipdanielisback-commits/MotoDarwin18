@@ -40,6 +40,37 @@ See [XT2135-2 Public Firmware and Source Evidence Register](../research/firmware
 
 # Research log
 
+## 2026-11-08 — SecureDT consumer contract crosswalk
+
+### Work completed
+
+- Rechecked the pinned SecureDT structures and traversal code, Platform Expert initialization, machine/SoC identification, interrupt/timer discovery, and early ARM64 DRAM-property consumers.
+- Classified tree representation and pointer/length/lifetime requirements separately from node/property requirements.
+- Split early fatal requirements, gated SoC/CPU requirements, later interrupt/timebase dependencies, optional metadata, and debug/target-conditional properties.
+- Compared those consumer expectations with the documented shared Hanoip / SDMMAGPIE Linux source clues without upgrading family evidence to exact XT2135-2 facts.
+
+### Findings
+
+- XNU SecureDT consumes an Apple-specific in-memory node/property representation; standard FDT has a different header/structure/strings layout and standard big-endian cell encoding.
+- The reviewed ARM64 path requires /chosen/dram-base and /chosen/dram-size; absence is fatal in that path.
+- The /cpus assertion is gated by successful SoC-base discovery through the arm-io path.
+- Interrupt-controller and timer nodes are later Platform Expert dependencies. Their expected XNU naming and reg interpretation are not proven by the Hanoip GICv3/PDC and timer clues.
+- CPU frequency fields and several model/debug/firmware metadata properties are optional or conditional, not universal mandatory requirements.
+- No exact XT2135-2 firmware tree, property encoding, pointer lifetime, memory ownership, or producer contract was located.
+
+### Decision
+
+No executable XNU patch is justified. The crosswalk records concrete consumer requirements and evidence gaps, not a demonstrated exact-target producer/consumer mismatch.
+
+### Detailed report
+
+See [SecureDT Contract Crosswalk](../xnu/source-reviews/SECUREDT_CONTRACT_CROSSWALK.md).
+
+### Next evidence gate
+
+Continue seeking authoritative exact-model firmware-side documentation for tree representation and property semantics. If it remains unavailable, preserve the unknowns rather than inventing values or constructing a device handoff.
+
+
 ## 2026-11-08 — Pinned XNU ARM64 configuration-dependent startup audit
 
 ### Scope
