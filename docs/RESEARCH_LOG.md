@@ -166,3 +166,29 @@ Continue with exact-model public documentation and platform-level architectural 
 
 **Next research task:**
 - 
+
+
+## 2026-11-08 — Confirmed platform facts and XNU compatibility reconciliation
+
+### Work completed
+
+- Reconciled Motorola's XT2135-2 / MC38C declaration with the Motorola Android kernel-source publication trail.
+- Reclassified shared hanoip / SDMMAGPIE subsystem observations as family-level clues unless an exact XT2135-2 board-revision link exists.
+- Compared the evidence against the pinned XNU ARM64 entry, `boot_args`, VM, SecureDT, CPU, interrupt, timer, console and later platform-service dependencies.
+- Recorded the executable source-patch decision.
+
+### Findings
+
+- Confirmed exact-model facts are primarily model identity and regulatory radio capabilities in Motorola's declaration.
+- Motorola's public source tracker provides Android/Linux kernel-source provenance for named XT2135-2 builds, not a firmware-to-XNU handoff specification.
+- The shared Hanoip tree's `hanoip` identifiers are software build identity labels, not physical PCB revision identifiers.
+- Detailed GICv3/PDC, timer, storage, display, touch, WLAN, PMIC and audio observations remain family-level evidence.
+- The exact board revision, DVT overlay mapping, complete memory map, entry CPU state, producer-side boot ABI and SecureDT handoff remain unknown.
+
+### Decision
+
+No executable XNU patch is justified. No specific upstream XNU source defect or exact producer/consumer mismatch has been demonstrated. Do not modify boot ABI consumers or platform startup code to compensate for unknown target behavior.
+
+### Detailed review
+
+See [XT2135-2 Confirmed Platform Facts and XNU Compatibility Review](../research/firmware/XT2135_2_CONFIRMED_PLATFORM_FACTS.md).
