@@ -1,5 +1,42 @@
 # Research log
 
+## 2026-11-08 — Hanoip / SDMMAGPIE source-tree review
+
+### Question
+
+Can public Android/Linux engineering sources narrow the seven outstanding hardware questions for Moto G60 XT2135-2?
+
+### Sources reviewed
+
+- Shared Moto G40 Fusion / Moto G60 (`hanoip`) Android device tree and its build configuration.
+- LineageOS Motorola SM6150 kernel source, especially the SDMMAGPIE SoC tree, Hanoi base tree, Hanoip common overlay, panel file, touchscreen file, and battery/thermal overlay.
+- Qualcomm Snapdragon 732G product brief for SoC naming and capability context.
+
+### Findings
+
+- The shared device tree uses the codename `hanoip`; its BoardConfig uses `sm6150` as an Android build-platform label and points to a Motorola SM6150 kernel tree. The kernel DTS names the SoC family `sdmmagpie`, while Qualcomm's Snapdragon 732G brief lists part number SM7150-AC. Preserve these naming differences; do not infer silicon identity from a repository directory alone.
+- The shared SoC DTS describes a GICv3 interrupt controller and Qualcomm PDC.
+- The same DTS lists an Armv8 generic timer at 19.2 MHz and a memory-mapped timer block.
+- The device-tree storage aliases describe embedded UFS, SDC1/eMMC, and SDC2/SD-card paths. Android partition references use a UFS host path.
+- The Hanoi panel file includes a Tianma ILI7807S 678-class 1080 × 2460 MIPI-DSI panel description with 60/120 Hz modes.
+- The Hanoi touchscreen file describes an Ilitek SPI touchscreen node.
+- The shared SoC tree includes a Qualcomm WCN3990 Bluetooth node. The hanoip Android module list includes `qca_cld3_wlan.ko`; that module name does not identify the exact Wi-Fi chip.
+- Hanoi battery/thermal files describe PM6150/PM6150L power-management devices and MC50 6000 mAh battery profiles from ATL and SUNWODA.
+- Reserved-memory carveouts exist in the kernel DTS, but they do not amount to a complete physical memory map.
+
+### Confidence and limitations
+
+These are community-source findings for a shared G40 Fusion/G60 family tree, not an official Motorola schematic. The exact XT2135-2 board revision and the correct DVT overlay for a particular unit are not mapped. Hardware candidates must remain provisional until corroborated by exact-model evidence.
+
+### Conclusion
+
+The source tree provides useful candidate platform details for GICv3, timers, UFS/SD-card paths, display, touchscreen, wireless software, and PMIC/battery configuration. It does not establish a complete XT2135-2 board inventory or Darwin/XNU compatibility.
+
+### Next research task
+
+Identify the exact XT2135-2 board revision and correlate its selected device-tree overlay with official Motorola sources where possible. Continue to treat the full memory map and exact WLAN combo-chip as open questions.
+
+
 A concise record of research decisions and evidence. Add new entries at the top. Keep observations separate from assumptions and conclusions.
 
 ## 2026-11-08 — Exact-model and SoC evidence review
