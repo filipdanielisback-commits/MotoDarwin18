@@ -14,6 +14,21 @@ This list prioritizes primary sources. A link is a starting point for research, 
 - Qualcomm, [Snapdragon 732G Mobile Platform product brief (PDF)](https://www.qualcomm.com/content/dam/qcomm-martech/dm-assets/documents/qualcomm-snapdragon-732g-mobile-platform-product-brief.pdf). Manufacturer-documented SoC features; optional features may depend on OEM/carrier selection.
 - Qualcomm, [Snapdragon 732G announcement](https://www.qualcomm.com/news/releases/2020/08/qualcomm-announces-snapdragon-732g-improve-high-tier-mobile-gaming).
 
+## Hanoip / SDMMAGPIE engineering references
+
+These are community-maintained Android/Linux engineering sources for the shared Moto G40 Fusion / Moto G60 (`hanoip`) family. They are not official Motorola schematics and must be checked against the exact target board revision.
+
+- [hanoip Android device tree](https://github.com/motorola-sm6150-devs/device_motorola_hanoip), including [BoardConfig.mk](https://github.com/motorola-sm6150-devs/device_motorola_hanoip/blob/lineage-20/BoardConfig.mk) and [modules.load](https://github.com/motorola-sm6150-devs/device_motorola_hanoip/blob/lineage-20/modules.load).
+- [LineageOS Motorola SM6150 kernel source](https://github.com/LineageOS/android_kernel_motorola_sm6150/tree/lineage-20).
+- [SDMMAGPIE SoC device tree](https://github.com/LineageOS/android_kernel_motorola_sm6150/blob/lineage-20/arch/arm64/boot/dts/qcom/sdmmagpie.dtsi).
+- [Motorola SDMMAGPIE base device tree](https://github.com/LineageOS/android_kernel_motorola_sm6150/blob/lineage-20/arch/arm64/boot/dts/qcom/sdmmagpie-moto-base.dtsi).
+- [Hanoi base device tree](https://github.com/LineageOS/android_kernel_motorola_sm6150/blob/lineage-20/arch/arm64/boot/dts/qcom/sdmmagpie-hanoi-base.dts).
+- [Hanoip common overlay](https://github.com/LineageOS/android_kernel_motorola_sm6150/blob/lineage-20/arch/arm64/boot/dts/qcom/sdmmagpie-hanoip-common-overlay.dtsi).
+- [Hanoi panel description](https://github.com/LineageOS/android_kernel_motorola_sm6150/blob/lineage-20/arch/arm64/boot/dts/qcom/hanoi-panel.dtsi).
+- [Hanoi touchscreen description](https://github.com/LineageOS/android_kernel_motorola_sm6150/blob/lineage-20/arch/arm64/boot/dts/qcom/sdmmagpie-hanoi-touchscreen.dtsi).
+- [Hanoi battery and thermal overlay](https://github.com/LineageOS/android_kernel_motorola_sm6150/blob/lineage-20/arch/arm64/boot/dts/qcom/hanoi_battery_thermal_overlay.dtsi).
+- [Hanoip DVT1 overlay](https://github.com/LineageOS/android_kernel_motorola_sm6150/blob/lineage-20/arch/arm64/boot/dts/qcom/sdmmagpie-hanoip-dvt1-overlay.dts) and [DVT2 overlay](https://github.com/LineageOS/android_kernel_motorola_sm6150/blob/lineage-20/arch/arm64/boot/dts/qcom/sdmmagpie-hanoip-dvt2-overlay.dts).
+
 ## Darwin / XNU background
 
 - Apple, [XNU source code](https://github.com/apple-oss-distributions/xnu). This is the open-source kernel source; it is not the source code for all proprietary iOS components.
