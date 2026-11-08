@@ -8,16 +8,17 @@ This folder contains MotoDarwin18-authored analysis of selected upstream XNU fil
 - [`pexpert/pexpert/pexpert.h`](PEXPERT_HEADER_REVIEW.md) — Public Platform Expert declarations and platform obligations.
 - [`pexpert/pexpert/arm64/boot.h`](ARM64_BOOT_HEADER_REVIEW.md) — ARM64 boot handoff structure and validation requirements.
 - [`osfmk/arm/arm_init.c`](ARM_INIT_REVIEW.md) — Boot CPU initialization order and dependencies on pexpert.
+- [Pinned XNU source verification](PINNED_SOURCE_VERIFICATION.md) — Exact declarations and selected consumer paths checked at `xnu-11215.1.10`.
 
-## Source-version warning
+## Source-version status
 
-MotoDarwin18's provisional source baseline is `xnu-11215.1.10`, recorded in [UPSTREAM.md](../UPSTREAM.md). The source-browser pages used for this initial reading are not all pinned to that exact tag. Therefore these notes are **provisional source observations**, not a claim that every declaration and line is identical in the pinned tag.
+The selected declarations and consumer paths documented in `PINNED_SOURCE_VERIFICATION.md` were fetched at the immutable `xnu-11215.1.10` tag, peeled commit `8d741a5de7ff4191bf97d57b9f54c2f6d4a15585`. File blob hashes are recorded in that verification report.
 
-Before authoring a patch, compare all four files directly against the pinned tag, record the exact commit and file-level licenses, and update any differences here. No upstream source is copied into this repository.
+The earlier individual review notes remain provisional where they contain observations from non-pinned source-browser pages. The pinned verification report supersedes those notes for the specific declarations and use sites it documents. It does not claim a complete audit of every reader, writer, conditional configuration, or producer-side boot contract.
 
 ## Research status
 
-- Source-reading notes: documented, provisional.
-- Exact pinned-tag line-by-line verification: pending.
+- Pinned declarations and selected consumers: verified.
+- Full boot ABI producer/consumer audit: incomplete.
 - Moto G60 implementation: not started.
-- Host tests or target tests of XNU: not performed.
+- XNU host build, emulator test, or target test: not performed.
