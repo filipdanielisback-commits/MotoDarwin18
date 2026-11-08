@@ -196,3 +196,12 @@ Added [Secure Device Tree Requirements Analysis](docs/SECURE_DEVICE_TREE_REQUIRE
 Key finding: the reviewed XNU SecureDT code walks an Apple-specific node/property record layout. It must not be assumed to accept a standard Linux FDT blob directly. The reviewed ARM64 startup path requires `/chosen/dram-base` and `/chosen/dram-size`; early machine identification also consumes CPU and SoC/interrupt/timer node conventions. The actual XT2135-2 firmware handoff format and property contract remain unknown.
 
 This is a source/documentation milestone only. No target tree has been extracted, converted, passed to a kernel, or tested on the handset.
+
+
+## 12. Device Tree property compatibility matrix — 2026-11-08
+
+Added [Device Tree Property Compatibility Matrix](docs/DEVICE_TREE_PROPERTY_COMPATIBILITY_MATRIX.md), comparing the pinned XNU early property consumers with the currently documented Hanoip/SDMMAGPIE Linux source evidence.
+
+The matrix records conceptual overlap for CPU topology, GICv3/PDC, timers, and memory descriptions while keeping exact Apple-style property matches and the XT2135-2 firmware handoff unknown. The mandatory `/chosen/dram-base` and `/chosen/dram-size` properties are not documented in the reviewed Hanoip evidence; “not observed” is not a claim that they are absent from the actual device tree.
+
+This remains a source/documentation milestone. No target tree, boot payload, or device configuration was generated or tested.
