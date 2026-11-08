@@ -192,3 +192,30 @@ No executable XNU patch is justified. No specific upstream XNU source defect or 
 ### Detailed review
 
 See [XT2135-2 Confirmed Platform Facts and XNU Compatibility Review](../research/firmware/XT2135_2_CONFIRMED_PLATFORM_FACTS.md).
+
+
+## 2026-11-08 — XT2135-2 firmware and board-revision documentation follow-up
+
+### Sources reviewed
+
+- Motorola official Right to Repair page and its linked repair-document portal.
+- Third-party EletrônicaBR listing for a broad XT2135-X / G60 / G40 service-document package.
+- Third-party schematic index advertising an XT2135-x component-location item.
+- Motorola kernel-msm issue #574 and the linked Android/Linux kernel-source release.
+- Android Open Source Project device-tree overlay documentation.
+
+### Findings
+
+- Motorola's official page confirms that service manuals, parts lists and schematics are distributed through its repair-document channel. The linked partner portal returned a JavaScript/anti-bot interstitial, so no XT2135-2-specific manual or revision data was independently verified.
+- The third-party service listing groups XT2135-X, G60 and G40. Its document contents and applicability to MC38C / a specific PCB revision were not verified.
+- A separate third-party schematic index also lacks verifiable board-revision detail.
+- Motorola issue #574 links a named XT2135-2 Android 12 firmware build to the Motorola `kernel-msm` source release tag `MMI-S2RIS32.32-20-9-9-2-3`. This is Android kernel source provenance, not a boot-firmware or XNU handoff specification.
+- General Android documentation explains DTB/DTBO overlay behavior, but does not identify the overlay used on this exact handset.
+
+### Decision
+
+No authoritative exact-model PCB assembly/revision mapping, DVT1/DVT2 selection, or firmware-to-XNU entry contract was found. Keep those facts unknown. No executable XNU patch is justified.
+
+### Detailed record
+
+See [XT2135-2 Firmware and Board-Revision Documentation Follow-up](../research/firmware/XT2135_2_FIRMWARE_BOARD_REVISION_FOLLOWUP.md).
