@@ -17,7 +17,7 @@ This directory contains MotoDarwin18's documentation and, later, project-authore
 | [UPSTREAM.md](UPSTREAM.md) | Upstream source selection and provenance | Provisional `xnu-11215.1.10` baseline |
 | [PEXPERT_REVIEW.md](PEXPERT_REVIEW.md) | ARM64 Platform Expert research | Interface and startup overview |
 | [PLATFORM_INTERFACE_MATRIX.md](PLATFORM_INTERFACE_MATRIX.md) | XNU-to-platform requirements | Evidence-gated interface map |
-| [PLATFORM_PORTING_CHECKLIST.md](PLATFORM_PORTING_CHECKLIST.md) | Research and implementation gates | No device modifications |
+| [PLATFORM_PORTING_CHECKLIST.md](PLATFORM_PORTING_CHECKLIST.md) | Research and implementation gates | No device modifications |\n| [source-reviews/](source-reviews/README.md) | File-by-file upstream source analysis | Provisional review of four ARM64 startup/pexpert files |
 
 ## Upstream XNU areas to understand
 
@@ -49,7 +49,7 @@ This is an orientation map, not a statement that each area needs modification fo
 1. Record the candidate source in [UPSTREAM.md](UPSTREAM.md).
 2. Compare the candidate's documented architecture and platform assumptions with [the platform requirements](../docs/SOC_PLATFORM_REQUIREMENTS.md).
 3. Track evidence and unknowns in [COMPATIBILITY_MATRIX.md](COMPATIBILITY_MATRIX.md).
-4. Use [PEXPERT_REVIEW.md](PEXPERT_REVIEW.md) and [PLATFORM_INTERFACE_MATRIX.md](PLATFORM_INTERFACE_MATRIX.md) to identify interfaces and missing evidence.
+4. Use [PEXPERT_REVIEW.md](PEXPERT_REVIEW.md), [PLATFORM_INTERFACE_MATRIX.md](PLATFORM_INTERFACE_MATRIX.md), and the [file-by-file source reviews](source-reviews/README.md) to identify interfaces and missing evidence.\n5. Verify every observation against the exact pinned tag before proposing implementation.
 5. Propose a patch only when a specific, evidence-backed gap is identified.
 6. Validate source changes in an isolated development environment; this folder does not provide instructions for changing a phone.
 
