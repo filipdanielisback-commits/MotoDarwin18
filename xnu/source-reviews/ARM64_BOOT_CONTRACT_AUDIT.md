@@ -91,3 +91,10 @@ The audit confirms that the largest blocker is not a proven bug in upstream XNU.
 **Decision: no executable kernel compatibility patch at this stage.** The next milestone is stronger exact-model producer evidence.
 
 *Project: MotoDarwin18*
+
+
+## Follow-up: confirmed platform evidence reconciliation — 2026-11-08
+
+The [XT2135-2 Confirmed Platform Facts and XNU Compatibility Review](../../research/firmware/XT2135_2_CONFIRMED_PLATFORM_FACTS.md) reconciles the exact-model Motorola declaration, Android kernel-source provenance and shared hanoip-family evidence against the pinned XNU requirements.
+
+The new review does not change the audit decision: no exact XT2135-2 producer contract has been established for the Apple `boot_args` ABI, entry CPU state, memory ownership or SecureDT representation. GICv3/PDC and timer descriptions remain family-level clues, not an XNU implementation. No executable XNU source patch is justified.
