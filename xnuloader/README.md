@@ -16,6 +16,7 @@ This directory tracks the design questions for a possible independently develope
 | [ARCHITECTURE.md](ARCHITECTURE.md) | Conceptual component responsibilities and boundaries | Initial research |
 | [HANDOFF_REQUIREMENTS.md](HANDOFF_REQUIREMENTS.md) | High-level information categories a kernel handoff must describe | Research checklist |
 | [HAKIOS_ARCHITECTURE_COMPARISON.md](HAKIOS_ARCHITECTURE_COMPARISON.md) | Comparison of HakiOS's public loader architecture with MotoDarwin18 research | Source analysis |
+| [INTERFACE_DESIGN.md](INTERFACE_DESIGN.md) | On-device interface, touchscreen, display, fallback input, and evidence gates | Design specification only |
 | [COMPATIBILITY.md](COMPATIBILITY.md) | Platform and loader assumptions that remain unverified | Initial unknowns |
 
 ## What a loader is responsible for, conceptually
