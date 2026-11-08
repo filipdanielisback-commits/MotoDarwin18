@@ -203,3 +203,14 @@ The pinned XNU code defines a concrete SecureDT consumer contract. The shared Ha
 The highest-priority unresolved items remain the SecureDT representation and lifetime, the mandatory DRAM properties, and the exact SoC/CPU/interrupt/timer property semantics. Keep source patches deferred until an authoritative exact-target producer contract and a concrete mismatch are demonstrated.
 
 *Project: MotoDarwin18*
+
+
+## 12. Additional community Hanoip FDT sample reviewed — 2026-11-08
+
+A public community repository contains a 5,300-line expanded Linux DTS snapshot whose root identifies `Motorola Moto G60`, `motorola,hanoip` and `qcom,sm7150`. It includes CPU, memory/reserved-memory, GIC, generic-timer and framebuffer descriptions.
+
+The source-level check found no `/chosen/dram-base`, `/chosen/dram-size`, `arm-io`, `interrupt-controller = "master"`, or `device_type = "timer"` in that particular file. These are observations about one community Linux FDT sample only—not about stock firmware or the XT2135-2.
+
+The community repository self-describes its work as Moto G60/Hanoip/SM7150 and describes an embedded Linux FDT in its own U-Boot build. It does not identify XT2135-2 / MC38C or a physical board revision. Therefore, this is stronger family-level sample evidence, but not an exact-target firmware producer contract.
+
+See [Community Hanoip U-Boot FDT Evidence Audit](HANOIP_COMMUNITY_UBOOT_DTB_EVIDENCE_AUDIT.md). The SecureDT compatibility decision remains unchanged: no executable XNU patch is justified.
