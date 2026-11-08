@@ -1,32 +1,38 @@
 # Device Unknowns — Moto G60 XT2135-2
 
-**Status:** Open research register  
-**Scope:** Hardware and platform facts not yet established for the exact target model.
+**Status:** Open research register with provisional source-tree findings  
+**Scope:** Hardware and platform facts not yet established for the exact target model.  
+**Last reviewed:** 2026-11-08
 
 ## Purpose
 
-Track unknowns that affect a future Darwin/XNU compatibility assessment. An unknown must remain unknown until supported by a reliable source. Do not infer handset implementation from a SoC feature list.
+Track unknowns that affect a future Darwin/XNU compatibility assessment. An unknown must remain unknown until supported by reliable evidence. Do not infer handset implementation from a SoC feature list or from a shared device-tree family without checking its board revision.
 
-## Open questions
+## Evidence update
 
-| Area | Unknown | Evidence needed | Status |
+A public LineageOS kernel device tree and Android device configuration exist for the shared Motorola Moto G40 Fusion / Moto G60 family, codename `hanoip`. They provide useful platform clues, but they are not an official board schematic and do not identify which board-revision overlay matches every XT2135-2 unit.
+
+See [HANOIP_PLATFORM_EVIDENCE.md](../research/soc/HANOIP_PLATFORM_EVIDENCE.md) for source links, confidence levels, and detailed limitations.
+
+## Open questions and provisional findings
+
+| Area | Current finding | Evidence needed / remaining unknown | Status |
 |---|---|---|---|
-| Board | Exact board revision and component population | Model-specific primary documentation | Open |
-| Boot | Documented boot architecture and firmware interfaces | Public platform documentation | Open |
-| CPU | Exact CPU topology and exposed platform description | Device-specific evidence | Open |
-| Interrupts | Interrupt-controller configuration and routing | Public hardware documentation | Open |
-| Timers | Platform timer interfaces | SoC/platform documentation | Open |
-| Memory | Physical memory map and reserved regions | Reliable device-specific documentation | Open |
-| Display | Panel, controller, interface, initialization dependencies | Panel/board documentation | Open |
-| Touch | Touch controller and bus | Component identification evidence | Open |
-| Storage | Storage component and controller details | Device-specific documentation | Open |
-| Wireless | Wi-Fi/Bluetooth combo-chip and firmware dependencies | Component documentation | Open |
-| Audio | Codec, amplifier, and routing | Component documentation | Open |
-| Cameras | Sensor part numbers and bus topology | Camera/module documentation | Open |
-| Power | PMIC, regulators, clocks, and power domains | Platform documentation | Open |
-| Sensors | Exact sensor models and bus connections | Component documentation | Open |
-| USB | Controller implementation and supported roles | Platform documentation | Open |
-| Thermal | Thermal sensors and cooling policy interfaces | Device-specific evidence | Open |
+| Board | Shared `hanoip` device tree has DVT1 and DVT2 overlays | Map exact XT2135-2 hardware revision to the correct overlay | Open |
+| Boot | Android board configuration and kernel tree exist | Authoritative firmware and handoff documentation for exact model | Open |
+| CPU | Shared SDMMAGPIE tree describes eight CPU nodes | Confirm exact target topology and exposed firmware description | Probable platform-family evidence |
+| Memory | Kernel tree defines several reserved-memory carveouts | Complete physical RAM map, banks, and exact revision reservations | Open |
+| Interrupts | Shared SoC tree describes GICv3 and Qualcomm PDC | Exact XT2135-2 routing and firmware ownership | Probable platform-family evidence |
+| Timers | Armv8 generic timer listed at 19.2 MHz; memory-mapped timer block described | Exact enabled timer sources and target behavior | Probable platform-family evidence |
+| Storage | UFS host path and SD-card controller appear in source tree | Exact flash component; confirm final active controller configuration | Probable platform-family evidence |
+| Display | Tianma ILI7807S 678-class MIPI-DSI panel included in Hanoi panel file | Confirm exact panel in XT2135-2 and physical display pipeline | Probable platform-family evidence |
+| Touch | Ilitek touchscreen node appears on SPI in Hanoi touchscreen file | Confirm exact controller on target board revision | Probable platform-family evidence |
+| Wireless | WCN3990 Bluetooth node; CLD3 WLAN module listed | Exact combo-chip, firmware, calibration, and variant mapping | Open |
+| Audio | WCD937x and AW882xx components appear in shared audio overlay | Confirm exact codec/amplifier population on target unit | Probable platform-family evidence |
+| Power | PM6150/PM6150L nodes and MC50 battery profiles appear in Hanoi overlays | Exact PMIC population and battery supplier for target unit | Probable platform-family evidence |
+| Sensors | Shared sensor overlays exist | Confirm exact sensor models and bus connections | Open |
+| USB | Qualcomm USB/PHY nodes exist in shared SoC tree | Exact enabled role/configuration for target board | Open |
+| Thermal | PMIC ADC and thermal-zone configuration exists | Exact sensor population and final board policy | Probable platform-family evidence |
 
 ## Evidence record template
 
@@ -42,15 +48,17 @@ For every resolved item, record:
 
 ## Evidence rules
 
-1. Prefer Motorola, Qualcomm, Android Open Source Project, and component-vendor documentation.
-2. Distinguish SoC capability from what Motorola implemented in this handset.
-3. Do not copy specifications from XT2135-1 to XT2135-2 without evidence that they match.
-4. Do not treat forum posts or device-tree guesses as confirmed hardware facts.
-5. Keep proprietary firmware and undocumented interfaces clearly marked.
-6. Do not claim that resolving a hardware unknown establishes XNU compatibility.
+1. Prefer Motorola, Qualcomm, Arm, Android Open Source Project, and component-vendor documentation.
+2. Treat community kernel/device trees as valuable secondary engineering evidence, not as official schematics.
+3. Distinguish SoC capability from what Motorola implemented in this handset.
+4. Do not copy specifications from XT2135-1 or Moto G40 Fusion to XT2135-2 without evidence that they match.
+5. Check board-ID and revision overlays before attributing a component to a particular unit.
+6. Do not treat forum posts or device-tree guesses as confirmed hardware facts.
+7. Keep proprietary firmware and undocumented interfaces clearly marked.
+8. Do not claim that resolving a hardware unknown establishes XNU compatibility.
 
 ## Current conclusion
 
-The public-facing specifications identify the broad Snapdragon 732G platform and several handset features, but they do not provide a complete board-level inventory. This register remains open.
+The shared hanoip / SDMMAGPIE source tree narrows several research questions, but does not establish a complete exact-model hardware inventory. The full XT2135-2 memory map, board revision, exact wireless chip, and complete peripheral bill of materials remain open.
 
 *Project: MotoDarwin18*
