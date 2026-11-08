@@ -96,3 +96,8 @@ The pinned XNU review identified further target-side unknowns beyond the boot-ar
 ## SecureDT consumer crosswalk update — 2026-11-08
 
 The pinned XNU SecureDT consumer requirements are now classified in [SecureDT Contract Crosswalk](../xnu/source-reviews/SECUREDT_CONTRACT_CROSSWALK.md). Highest-priority exact-target unknowns remain the tree representation and lifetime, /chosen/dram-base and /chosen/dram-size, the arm-io SoC-base description, CPU-state semantics, and later interrupt-controller/timer property contracts. Hanoip GICv3/PDC, timer, CPU and memory descriptions remain family-level clues only. No executable XNU patch is justified.
+
+
+## Community Hanoip FDT sample — 2026-11-08
+
+A public community source contains an expanded Linux DTS snapshot identifying itself as Moto G60 / Hanoip / SM7150. It describes CPU, memory/reserved-memory, GIC, generic timer and framebuffer concepts. It is not mapped to XT2135-2 / MC38C or a physical board revision, and the repository describes the tree as part of its own U-Boot/Linux setup rather than an original Motorola firmware handoff. The sample's lack of several XNU-specific selector/property names is scoped to that file only. See [Community Hanoip U-Boot FDT Evidence Audit](HANOIP_COMMUNITY_UBOOT_DTB_EVIDENCE_AUDIT.md). Exact target firmware tree and board revision remain unknown.
