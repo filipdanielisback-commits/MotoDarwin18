@@ -1,6 +1,6 @@
 import unittest
 
-from tools.xnuloader_touch_model import TouchEventModel, TouchRange, TouchSample
+from tools.xnuloader_touch_model import TouchEvent, TouchEventModel, TouchRange, TouchSample
 
 
 class TouchRangeTests(unittest.TestCase):
