@@ -91,3 +91,8 @@ Motorola issue #574 confirms an Android kernel-source publication trail for a na
 ## XNU configuration dependency update — 2026-11-08
 
 The pinned XNU review identified further target-side unknowns beyond the boot-argument structure: the exact SecureDT producer schema, `arm-io`/SoC-base description, CPU-node semantics, interrupt-controller and timer node contracts, required `/chosen/dram-base` and `dram-size` properties, memory ownership, and the appropriate compile-time security/CPU/board configuration. Shared Hanoip Linux DTS clues do not establish these XNU contracts. No executable patch is justified. See [ARM64 Configuration-Dependent Startup Audit](../xnu/source-reviews/ARM64_CONFIGURATION_DEPENDENCY_AUDIT.md).
+
+
+## SecureDT consumer crosswalk update — 2026-11-08
+
+The pinned XNU SecureDT consumer requirements are now classified in [SecureDT Contract Crosswalk](../xnu/source-reviews/SECUREDT_CONTRACT_CROSSWALK.md). Highest-priority exact-target unknowns remain the tree representation and lifetime, /chosen/dram-base and /chosen/dram-size, the arm-io SoC-base description, CPU-state semantics, and later interrupt-controller/timer property contracts. Hanoip GICv3/PDC, timer, CPU and memory descriptions remain family-level clues only. No executable XNU patch is justified.
