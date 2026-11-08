@@ -115,6 +115,22 @@ class PlatformServicesValidatorTests(unittest.TestCase):
         with self.assertRaises(ValidationError):
             validate_manifest(data)
 
+    def test_malformed_identity_status_rejected_without_crash(self):
+        data = self.valid()
+        data["target"]["identity_status"] = []
+        with self.assertRaises(ValidationError):
+            validate_manifest(data)
+
+    def test_malformed_evidence_scope_rejected_without_crash(self):
+        data = self.valid()
+        data["display"]["evidence"] = [{
+            "claim": "malformed test evidence",
+            "scope": [],
+            "url": "https://example.invalid/test",
+        }]
+        with self.assertRaises(ValidationError):
+            validate_manifest(data)
+
 
 class TouchEventModelTests(unittest.TestCase):
     def setUp(self):
