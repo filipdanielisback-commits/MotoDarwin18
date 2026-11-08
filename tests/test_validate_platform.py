@@ -1,12 +1,16 @@
 import copy
 import json
+import sys
 import unittest
 from pathlib import Path
 
-from validate_platform import validate_inventory
-
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "tools"))
+
+from validate_platform import validate_inventory  # noqa: E402
+
+
 INVENTORY = ROOT / "platform" / "xt2135-2.json"
 
 
@@ -49,6 +53,18 @@ class PlatformInventoryTests(unittest.TestCase):
         data["components"] = data["components"][1:]
         errors, _ = validate_inventory(data)
         self.assertTrue(any("required component missing: memory" in item for item in errors))
+
+    def test_malformed_status_type_is_reported_not_crashed(self):
+        data = copy.deepcopy(self.data)
+        data["components"][0]["status"] = ["confirmed"]
+        errors, _ = validate_inventory(data)
+        self.assertTrue(any("status must be one of" in item for item in errors))
+
+    def test_malformed_evidence_scope_type_is_reported_not_crashed(self):
+        data = copy.deepcopy(self.data)
+        data["components"][0]["evidence"][0]["scope"] = ["community_family"]
+        errors, _ = validate_inventory(data)
+        self.assertTrue(any("scope must be one of" in item for item in errors))
 
 
 if __name__ == "__main__":
