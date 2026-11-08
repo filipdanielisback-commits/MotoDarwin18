@@ -1,0 +1,120 @@
+{
+  "schema_version": 1,
+  "device": {
+    "manufacturer": "Motorola",
+    "product": "Moto G60",
+    "model": "XT2135-2",
+    "codename_family": "hanoip",
+    "soc": "Qualcomm Snapdragon 732G"
+  },
+  "components": [
+    {
+      "id": "memory",
+      "area": "memory_layout",
+      "status": "probable",
+      "value": "Shared hanoip sources define reserved-memory carveouts; this is not a complete physical DRAM map.",
+      "evidence": [
+        {
+          "scope": "community_family",
+          "title": "LineageOS SDMMAGPIE device tree",
+          "url": "https://github.com/LineageOS/android_kernel_motorola_sm6150/blob/lineage-20/arch/arm64/boot/dts/qcom/sdmmagpie.dtsi"
+        }
+      ],
+      "open_questions": ["Exact XT2135-2 DRAM banks and reserved regions remain unverified."]
+    },
+    {
+      "id": "interrupt_controller",
+      "area": "interrupts",
+      "status": "probable",
+      "value": "Shared SoC device tree describes Arm GICv3 and Qualcomm PDC.",
+      "evidence": [
+        {
+          "scope": "community_family",
+          "title": "LineageOS SDMMAGPIE device tree",
+          "url": "https://github.com/LineageOS/android_kernel_motorola_sm6150/blob/lineage-20/arch/arm64/boot/dts/qcom/sdmmagpie.dtsi"
+        }
+      ],
+      "open_questions": ["Exact target interrupt routing, enabled sources, and firmware ownership are unknown."]
+    },
+    {
+      "id": "timers",
+      "area": "timekeeping",
+      "status": "probable",
+      "value": "Shared tree describes the Armv8 generic timer at 19.2 MHz and a memory-mapped timer block.",
+      "evidence": [
+        {
+          "scope": "community_family",
+          "title": "LineageOS SDMMAGPIE device tree",
+          "url": "https://github.com/LineageOS/android_kernel_motorola_sm6150/blob/lineage-20/arch/arm64/boot/dts/qcom/sdmmagpie.dtsi"
+        }
+      ],
+      "open_questions": ["Exact XT2135-2 timer enablement and operating behavior have not been tested."]
+    },
+    {
+      "id": "storage",
+      "area": "storage",
+      "status": "probable",
+      "value": "Shared device configuration describes a UFS host path and an SD-card controller path.",
+      "evidence": [
+        {
+          "scope": "community_family",
+          "title": "LineageOS SDMMAGPIE device tree",
+          "url": "https://github.com/LineageOS/android_kernel_motorola_sm6150/blob/lineage-20/arch/arm64/boot/dts/qcom/sdmmagpie.dtsi"
+        }
+      ],
+      "open_questions": ["Exact internal flash component and active target-revision configuration remain unconfirmed."]
+    },
+    {
+      "id": "display",
+      "area": "display",
+      "status": "probable",
+      "value": "A Hanoi panel description includes a Tianma ILI7807S 678-class 1080x2460 MIPI-DSI panel candidate.",
+      "evidence": [
+        {
+          "scope": "community_family",
+          "title": "LineageOS Hanoi panel description",
+          "url": "https://github.com/LineageOS/android_kernel_motorola_sm6150/blob/lineage-20/arch/arm64/boot/dts/qcom/hanoi-panel.dtsi"
+        }
+      ],
+      "open_questions": ["Exact panel fitted to this XT2135-2 unit and display-controller integration are unknown."]
+    },
+    {
+      "id": "wireless",
+      "area": "wireless",
+      "status": "probable",
+      "value": "Shared sources contain a QCA WCN3990 Bluetooth node and list a CLD3 WLAN module; the exact combo-chip is not established.",
+      "evidence": [
+        {
+          "scope": "community_family",
+          "title": "LineageOS SDMMAGPIE device tree",
+          "url": "https://github.com/LineageOS/android_kernel_motorola_sm6150/blob/lineage-20/arch/arm64/boot/dts/qcom/sdmmagpie.dtsi"
+        },
+        {
+          "scope": "community_family",
+          "title": "Motorola hanoip Android device configuration",
+          "url": "https://github.com/motorola-sm6150-devs/device_motorola_hanoip"
+        }
+      ],
+      "open_questions": ["Exact Wi-Fi/Bluetooth component, firmware, calibration data, and board-revision mapping remain unknown."]
+    },
+    {
+      "id": "power_management",
+      "area": "power",
+      "status": "probable",
+      "value": "Shared Hanoi overlays describe PM6150/PM6150L PMIC components and MC50 battery profiles.",
+      "evidence": [
+        {
+          "scope": "community_family",
+          "title": "LineageOS Hanoi battery and thermal overlay",
+          "url": "https://github.com/LineageOS/android_kernel_motorola_sm6150/blob/lineage-20/arch/arm64/boot/dts/qcom/hanoi_battery_thermal_overlay.dtsi"
+        }
+      ],
+      "open_questions": ["Exact XT2135-2 PMIC population, battery supplier, and board-revision configuration are unverified."]
+    }
+  ],
+  "notes": [
+    "This is a research inventory, not a hardware description suitable for kernel initialization.",
+    "Community device-tree evidence is family-level evidence, not proof for every XT2135-2 board revision.",
+    "No register addresses, memory map, interrupt numbers, or device initialization sequences are asserted."
+  ]
+}
