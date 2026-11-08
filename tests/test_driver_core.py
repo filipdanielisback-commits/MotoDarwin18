@@ -74,6 +74,41 @@ class DriverDescriptorTests(unittest.TestCase):
         with self.assertRaises(InvalidDriverDescriptorError):
             DriverRegistry().register(driver)
 
+    def test_rejects_non_capability_metadata(self):
+        driver = FakeDriver()
+        driver._descriptor = DriverDescriptor(
+            "valid.id", "Valid", "1", ("display",)
+        )
+        with self.assertRaises(InvalidDriverDescriptorError):
+            DriverRegistry().register(driver)
+
+    def test_rejects_available_capability_without_evidence(self):
+        driver = FakeDriver()
+        driver._descriptor = DriverDescriptor(
+            "valid.id",
+            "Valid",
+            "1",
+            (DriverCapability("display", CapabilityState.AVAILABLE),),
+        )
+        with self.assertRaises(InvalidDriverDescriptorError):
+            DriverRegistry().register(driver)
+
+    def test_accepts_evidence_backed_capability(self):
+        driver = FakeDriver()
+        driver._descriptor = DriverDescriptor(
+            "valid.id",
+            "Valid",
+            "1",
+            (DriverCapability(
+                "display", CapabilityState.AVAILABLE, "docs/display-evidence.md"
+            ),),
+        )
+        snapshot = DriverRegistry().register(driver)
+        self.assertEqual(
+            snapshot.descriptor.capabilities[0].state,
+            CapabilityState.AVAILABLE,
+        )
+
     def test_rejects_duplicate_driver_identifier(self):
         registry = DriverRegistry()
         registry.register(FakeDriver())
