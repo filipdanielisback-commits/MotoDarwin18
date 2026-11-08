@@ -44,3 +44,7 @@ Evidence scopes are `upstream`, `soc_family`, `device_family`, and `exact_model`
 A passing result is **not** evidence that the manifest matches the real Motorola handset, that an XNU boot ABI has been correctly implemented, or that a kernel can boot. The schema is a project research format, not Apple's official boot ABI specification.
 
 The tool is read-only with respect to the phone and has no ADB, Fastboot, network, firmware, partition, bootloader, or device-write functionality.
+
+## Field reference
+
+See [docs/BOOT_HANDOFF_FIELD_REFERENCE.md](../docs/BOOT_HANDOFF_FIELD_REFERENCE.md) for the provisional ARM64 boot-argument field inventory, manifest mapping, unresolved ABI details, and verification checklist. The reference deliberately does not supply target values or assert unverified C field widths.
