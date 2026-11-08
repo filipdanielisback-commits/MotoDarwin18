@@ -58,3 +58,7 @@ A Moto-specific kernel change requires evidence that a concrete hardware fact or
 This is a Moto G60-specific evidence change, not a hardware driver. It deliberately leaves unresolved fields unresolved and prevents family clues from becoming unsupported XNU assumptions.
 
 *Project: MotoDarwin18*
+
+## Public-source provenance follow-up
+
+The [XT2135-2 Public Firmware and Source Evidence Register](../../../research/firmware/XT2135_2_PUBLIC_SOURCE_EVIDENCE.md) records Motorola's exact-model identity listing and Motorola-published Android kernel-source release trail. These sources improve model and kernel-source provenance but do not establish the firmware-to-XNU handoff or exact DVT overlay mapping.
