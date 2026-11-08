@@ -88,3 +88,15 @@ py -3 -m unittest discover -s tests -p "test_xnuloader_ui_model.py" -v
 ```
 
 The conceptual iOS 18 and Android menu entries are disabled by default. A selection intent is only a UI event; this model has no boot, chain-loading, reboot, or device-control operation. It does not render graphics or access hardware.
+
+## XNULoader display layout model
+
+`xnuloader_display_layout.py` validates synthetic display-mode metadata and calculates logical menu rectangles. It does not draw pixels, access a framebuffer, call UEFI, or communicate with a device.
+
+Run from the repository root:
+
+```powershell
+py -3 -m unittest discover -s tests -p "test_xnuloader_display_layout.py" -v
+```
+
+The model checks positive dimensions, scan-line stride, known GOP pixel-format labels, responsive portrait/landscape geometry, and rectangle containment. Its tests are host-side only; passing them does not establish that the Moto G60 exposes GOP or that any on-device display path works.
