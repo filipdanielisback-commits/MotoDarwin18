@@ -41,7 +41,7 @@ jobs:
       - name: Run XNULoader display layout tests
         run: python -m unittest discover -s tests -p "test_xnuloader_display_layout.py" -v
 
-      - name: Run XNULoader touchscreen model tests
+      - name: Run XNULoader display backend contract tests\n        run: python -m unittest discover -s tests -p "test_xnuloader_display_backend.py" -v\n\n      - name: Run XNULoader touchscreen model tests
         run: python -m unittest discover -s tests -p "test_xnuloader_touch_model.py" -v
 
       - name: Run unit tests
