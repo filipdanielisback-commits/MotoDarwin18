@@ -100,3 +100,16 @@ py -3 -m unittest discover -s tests -p "test_xnuloader_display_layout.py" -v
 ```
 
 The model checks positive dimensions, scan-line stride, known GOP pixel-format labels, responsive portrait/landscape geometry, and rectangle containment. Its tests are host-side only; passing them does not establish that the Moto G60 exposes GOP or that any on-device display path works.
+
+
+## XNULoader touchscreen event model
+
+`xnuloader_touch_model.py` converts synthetic absolute-pointer samples into a platform-neutral single-contact lifecycle: down, move, up, and cancel.
+
+Run from the repository root:
+
+```powershell
+py -3 -m unittest discover -s tests -p "test_xnuloader_touch_model.py" -v
+```
+
+The model validates coordinate ranges and cancellation behavior. It does not connect to a touchscreen, initialize a controller, access UEFI, or calibrate physical coordinates. Moto G60 XT2135-2 touch hardware and pre-Android input support remain unverified.
