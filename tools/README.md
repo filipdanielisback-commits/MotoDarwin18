@@ -113,3 +113,15 @@ py -3 -m unittest discover -s tests -p "test_xnuloader_touch_model.py" -v
 ```
 
 The model validates coordinate ranges and cancellation behavior. It does not connect to a touchscreen, initialize a controller, access UEFI, or calibrate physical coordinates. Moto G60 XT2135-2 touch hardware and pre-Android input support remain unverified.
+
+## XNULoader display backend contract model
+
+`xnuloader_display_backend.py` defines host-side service-state records, logical display commands, frame validation, and a protocol boundary for a future adapter.
+
+Run:
+
+```powershell
+py -3 -m unittest discover -s tests -p "test_xnuloader_display_backend.py" -v
+```
+
+This is not a renderer or a GOP implementation. It does not transfer pixels, access a framebuffer, call firmware, or communicate with a phone. Synthetic test reports are not evidence that the Moto G60 exposes a display service.
