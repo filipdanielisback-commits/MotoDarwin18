@@ -13,6 +13,7 @@ The initial goals are to:
 - Document the phone's publicly documented hardware characteristics.
 - Study the relevant ARM64, kernel, device-tree, and operating-system interfaces at a high level.
 - Map the major subsystems that a hypothetical device port would need to support.
+- Keep driver research organized by subsystem, with hardware evidence and implementation status clearly separated.
 - Keep research notes, references, and compatibility claims verifiable.
 - Build a clear separation between original project work and third-party material.
 
@@ -58,10 +59,27 @@ This repository is documentation-first. It does not provide instructions for byp
 ├── LICENSE
 ├── CONTRIBUTING.md
 ├── .gitignore
+├── drivers/
+│   ├── README.md
+│   ├── wifi/
+│   ├── power/
+│   ├── bluetooth/
+│   ├── audio/
+│   ├── gpu/
+│   ├── camera/
+│   ├── storage/
+│   ├── input/
+│   ├── modem/
+│   ├── net/
+│   └── core/
 └── docs/
     ├── ARCHITECTURE.md
     └── ROADMAP.md
 ```
+
+## Driver research
+
+The [drivers/](drivers/README.md) directory organizes future driver research by subsystem. Its README files are architecture and evidence scaffolds only: no Moto G60 driver implementation is present, and a directory does not mean that hardware is supported.
 
 ## Current status
 
