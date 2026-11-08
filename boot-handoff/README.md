@@ -45,6 +45,9 @@ A passing result is **not** evidence that the manifest matches the real Motorola
 
 The tool is read-only with respect to the phone and has no ADB, Fastboot, network, firmware, partition, bootloader, or device-write functionality.
 
-## Field reference
+## Field reference and source verification
 
-See [docs/BOOT_HANDOFF_FIELD_REFERENCE.md](../docs/BOOT_HANDOFF_FIELD_REFERENCE.md) for the provisional ARM64 boot-argument field inventory, manifest mapping, unresolved ABI details, and verification checklist. The reference deliberately does not supply target values or assert unverified C field widths.
+- [Boot Handoff Field Reference](../docs/BOOT_HANDOFF_FIELD_REFERENCE.md) — pinned field declarations, traced uses, manifest mapping and remaining gaps.
+- [Pinned XNU Source Verification](../xnu/source-reviews/PINNED_SOURCE_VERIFICATION.md) — exact source files, blob hashes and consumer trace.
+
+The manifest remains descriptive only and does not contain actual target boot values.
