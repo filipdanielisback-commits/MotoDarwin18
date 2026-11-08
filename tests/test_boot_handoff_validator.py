@@ -41,6 +41,12 @@ class BootHandoffValidatorTests(unittest.TestCase):
         with self.assertRaises(ValidationError):
             validate_manifest(data)
 
+    def test_malformed_identity_status_rejected_without_crash(self):
+        data = self.valid()
+        data["target"]["identity_status"] = []
+        with self.assertRaises(ValidationError):
+            validate_manifest(data)
+
     def test_bool_not_accepted_as_integer(self):
         data = self.valid()
         data["boot_handoff"]["revision"] = True
