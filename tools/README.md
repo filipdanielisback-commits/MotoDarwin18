@@ -76,3 +76,15 @@ py -3 -m unittest discover -s tests -p "test_platform_services.py" -v
 ```
 
 It also contains a pure touch-event model tested with synthetic samples. The validator and model do not access firmware, a touchscreen, a display, ADB, Fastboot, or any connected device. Passing tests do not establish that GOP or UEFI Absolute Pointer is available on the XT2135-2.
+
+## XNULoader UI core model
+
+`xnuloader_ui_model.py` is a platform-neutral host model for menu focus, enabled-item navigation, hit-testing, touch cancellation, and selection intents.
+
+Run from the repository root:
+
+```powershell
+py -3 -m unittest discover -s tests -p "test_xnuloader_ui_model.py" -v
+```
+
+The conceptual iOS 18 and Android menu entries are disabled by default. A selection intent is only a UI event; this model has no boot, chain-loading, reboot, or device-control operation. It does not render graphics or access hardware.
