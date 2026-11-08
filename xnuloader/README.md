@@ -1,34 +1,57 @@
 # XNU Loader Research Area
 
-This directory is reserved for an independently developed loader component for MotoDarwin18.
+This directory tracks the design questions for a possible independently developed XNU loader component within MotoDarwin18.
 
-**Status:** documentation scaffold only. There is no working loader, firmware integration, boot protocol implementation, or Moto G60 boot support in this directory.
+<badge>Documentation only</badge>
 
-## Planned layout
+**Current status:** no loader implementation, firmware integration, boot protocol implementation, or Moto G60 boot support exists here.
 
-- `src/` — original loader implementation, if and when a design is validated.
-- `include/` — project-owned interfaces and shared declarations.
-- `scripts/` — non-destructive build, static validation, and packaging helpers.
+## Directory map
 
-## Responsibilities to research
+| Path | Purpose | Current status |
+|---|---|---|
+| [src/](src/README.md) | Original implementation, if a safe and validated design is ever approved | No implementation |
+| [include/](include/README.md) | Project-owned interface declarations | No interfaces |
+| [scripts/](scripts/README.md) | Source-only validation helpers | No scripts |
+| [ARCHITECTURE.md](ARCHITECTURE.md) | Conceptual component responsibilities and boundaries | Initial research |
+| [HANDOFF_REQUIREMENTS.md](HANDOFF_REQUIREMENTS.md) | High-level information categories a kernel handoff must describe | Research checklist |
+| [COMPATIBILITY.md](COMPATIBILITY.md) | Platform and loader assumptions that remain unverified | Initial unknowns |
 
-The loader's eventual responsibilities and interfaces must be established from authoritative platform documentation. Research topics may include:
-- execution environment and firmware interface assumptions;
-- memory map and handoff contract;
-- kernel image format and metadata;
-- serial/logging design for development builds;
-- clear separation between generic loader logic and device-specific platform support.
+## What a loader is responsible for, conceptually
 
-These are research topics, not implemented capabilities.
+A loader is a component in a larger operating-system startup architecture. At a high level, loader research concerns:
 
-## Safety boundaries
+- identifying the execution environment and documented firmware contract;
+- understanding how a kernel image is represented and described;
+- understanding what platform information the kernel expects to receive;
+- documenting memory ownership and the boundary between firmware, loader, and kernel;
+- reporting errors clearly and preserving the integrity of source artifacts.
 
-This repository scaffold does not provide device boot instructions or commands that change boot configuration, unlock a bootloader, write firmware, or modify partitions. Early work should be limited to documentation, code review, static checks, and suitable emulated or otherwise non-destructive test environments.
+These are topics for architecture study only. This repository does not provide a device boot procedure, executable handoff implementation, or instructions for changing device boot configuration.
 
-## Licensing and provenance
+## Relationship to XNU
 
-Write original code or use dependencies whose licenses have been reviewed. Keep a record of source origins and notices. Do not assume HakiOS's loader license automatically applies to any copied or adapted code; review the exact files and their history before reuse.
+Apple's XNU source tree identifies `libsa` as kernel bootstrap code and `pexpert` as platform-specific code. Those source areas are not interchangeable with an external loader, and their presence does not define a complete third-party boot contract.
 
-## Current limitations
+See [Apple's XNU README](https://github.com/apple-oss-distributions/xnu/blob/main/README.md).
 
-A loader alone cannot make XNU compatible with a device. A supported kernel, platform initialization, memory and interrupt handling, and appropriate drivers would also be required. Moto G60 XT2135-2 support is not established.
+## Project boundaries
+
+- Keep generic loader concepts separate from Moto G60-specific assumptions.
+- Do not infer the phone's firmware interface from a different Snapdragon device.
+- Do not claim that a loader can compensate for missing kernel platform support or drivers.
+- Do not include proprietary firmware, operating-system images, keys, credentials, or personal data.
+- Review provenance and licensing for every external source or dependency.
+- Limit future automated checks to source files and test artifacts; do not interact with a connected phone.
+
+## Research sequence
+
+1. Document loader terminology and component boundaries.
+2. Identify the kernel-side information requirements from public source documentation.
+3. Record the target device's unknown firmware and platform details.
+4. Review licensing and feasibility before considering any implementation.
+5. Keep any later validation isolated from a personal or essential device.
+
+## Current assessment
+
+MotoDarwin18 remains a documentation and feasibility project. No working loader or Moto G60 boot support is claimed.
