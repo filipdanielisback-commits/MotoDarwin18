@@ -40,6 +40,32 @@ See [XT2135-2 Public Firmware and Source Evidence Register](../research/firmware
 
 # Research log
 
+## 2026-11-08 — Community Hanoip U-Boot FDT sample audit
+
+### New candidate reviewed
+
+Reviewed `eng-brener/hanoip-mainline` at commit `ea0186ba9a556549a004bd14e77d9c53681e0302`, file `work/sensors-20261026/se11-id-read/uboot-expanded.dts` (blob SHA `290c82eff78064e345f475a08c8183d9a1eaec1d`).
+
+### Direct observations
+
+- Root model is `Motorola Moto G60`; compatible strings are `motorola,hanoip` and `qcom,sm7150`.
+- The 5,300-line DTS contains a chosen node, eight CPU nodes, memory and reserved-memory nodes, GIC-compatible descriptions, an Arm generic-timer description and a simple framebuffer.
+- A full-file source check did not find `dram-base`, `dram-size`, `arm-io`, the XNU interrupt-controller selector `interrupt-controller = "master"`, or XNU's `device_type = "timer"` selector.
+- Scoped repository code searches did not return `XT2135-2` or `MC38C`.
+
+### Provenance limitation
+
+The community repository self-describes its target as Moto G60 / Hanoip / SM7150 and describes the Linux-facing FDT used by its own U-Boot build. It does not establish XT2135-2 / MC38C identity, physical board revision, or the stock Motorola firmware's original handoff. The repository's SM7150 / Snapdragon 730G label must not be silently equated with the target's reported SM7150-AC / Snapdragon 732G identity.
+
+### Decision
+
+This is a concrete family-level Linux FDT sample, not an exact-model firmware tree. Its missing XNU property names are observations about this file only. No XNU producer/consumer incompatibility on the actual XT2135-2 is proven, and no executable patch is justified.
+
+### Detailed report
+
+See [Community Hanoip U-Boot FDT Evidence Audit](../research/firmware/HANOIP_COMMUNITY_UBOOT_DTB_EVIDENCE_AUDIT.md).
+
+
 ## 2026-11-08 — SecureDT consumer contract crosswalk
 
 ### Work completed
