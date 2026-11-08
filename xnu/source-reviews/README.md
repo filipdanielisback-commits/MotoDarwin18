@@ -10,6 +10,7 @@ This folder contains MotoDarwin18-authored analysis of selected upstream XNU fil
 - [`osfmk/arm/arm_init.c`](ARM_INIT_REVIEW.md) — Boot CPU initialization order and dependencies on pexpert.
 - [Pinned XNU source verification](PINNED_SOURCE_VERIFICATION.md) — Exact declarations and selected consumer paths checked at `xnu-11215.1.10`.
 - [ARM64 configuration-dependent startup audit](ARM64_CONFIGURATION_DEPENDENCY_AUDIT.md) — Separates ARM64 mechanisms, XNU/Apple platform contracts, build-time branches, and XT2135-2 unknowns.
+- [SecureDT contract crosswalk](SECUREDT_CONTRACT_CROSSWALK.md) — Classifies early, gated, later-phase, optional and conditional SecureDT consumers against Hanoip evidence.
 
 ## Source-version status
 
