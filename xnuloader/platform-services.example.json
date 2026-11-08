@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "target": {
+    "model": "XT2135-2",
+    "identity_status": "documented"
+  },
+  "environment": {
+    "name": null,
+    "status": "unknown"
+  },
+  "display": {
+    "protocol": "UEFI Graphics Output Protocol",
+    "status": "unknown",
+    "mode": null,
+    "evidence": []
+  },
+  "touch": {
+    "protocol": "UEFI Absolute Pointer Protocol",
+    "status": "unknown",
+    "coordinate_range": null,
+    "evidence": []
+  },
+  "fallback_pointer": {
+    "protocol": null,
+    "status": "not_checked",
+    "evidence": []
+  }
+}
