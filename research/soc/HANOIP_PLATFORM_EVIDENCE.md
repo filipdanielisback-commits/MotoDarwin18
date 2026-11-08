@@ -150,3 +150,14 @@ The shared hanoip / SDMMAGPIE source tree significantly narrows the research que
 These findings are not yet a complete XT2135-2 hardware inventory. They do not establish an XNU port, a loader handoff, or a working driver. The exact board revision and complete memory map remain key gaps.
 
 *Project: MotoDarwin18*
+
+
+## 8. Additional community Linux FDT sample — 2026-11-08
+
+A separate public community repository, `eng-brener/hanoip-mainline`, contains a pinned expanded DTS snapshot with root model `Motorola Moto G60` and compatible strings `motorola,hanoip` / `qcom,sm7150`. It describes eight CPU nodes, memory and reserved-memory, GIC, generic timer and a simple framebuffer.
+
+This is useful corroborating **Hanoip-family Linux FDT evidence**, but it is not Motorola-authoritative and is not identified as XT2135-2 / MC38C. The repository describes the FDT used by its own U-Boot build, so it must not be treated as the original stock-firmware handoff. It also labels the platform SM7150 / Snapdragon 730G; preserve the distinction from the target's reported SM7150-AC / Snapdragon 732G.
+
+The sample does not contain the XNU-specific `dram-base`, `dram-size`, `arm-io`, `interrupt-controller = "master"`, or `device_type = "timer"` selectors. This absence applies only to this particular file.
+
+Detailed provenance and limitations: [Community Hanoip U-Boot FDT Evidence Audit](../firmware/HANOIP_COMMUNITY_UBOOT_DTB_EVIDENCE_AUDIT.md).
