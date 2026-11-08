@@ -65,3 +65,10 @@ A future patch proposal must identify a specific incompatible field or semantic,
 The [ARM64 Boot Contract Compatibility Audit](../../source-reviews/ARM64_BOOT_CONTRACT_AUDIT.md) reviewed the project’s pinned-source records and target evidence on 2026-11-08.
 
 **Decision:** no specific XNU source defect has been demonstrated. The current gap is missing producer-side evidence for XT2135-2. Keep this proposal at **Needs evidence**; do not turn it into an executable source patch until a concrete producer/consumer mismatch is established.
+
+
+## Evidence reconciliation — 2026-11-08
+
+The [XT2135-2 Confirmed Platform Facts and XNU Compatibility Review](../../../research/firmware/XT2135_2_CONFIRMED_PLATFORM_FACTS.md) has rechecked the target evidence against the pinned XNU consumer requirements.
+
+**Disposition remains: Needs evidence.** The exact-model evidence still does not define the firmware producer's `boot_args`, CPU entry state, memory ownership or SecureDT contract. Do not create an executable source patch based only on shared hanoip Linux descriptions or missing producer documentation.
