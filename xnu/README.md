@@ -1,31 +1,58 @@
 # XNU Research Area
 
-This directory is reserved for MotoDarwin18's work related to Apple's open-source XNU kernel.
+This directory contains MotoDarwin18's documentation and, later, project-authored work relating to Apple's open-source XNU kernel.
 
-**Status:** documentation scaffold only. No Moto G60 kernel port, device driver, patch, or build configuration is implemented here yet.
+<badge>Research scaffold</badge>
 
-## Planned layout
+**Current status:** no Moto G60 kernel port, platform driver, patch series, or device-specific build configuration is implemented here.
 
-- `patches/` — project-authored patch series against a documented upstream XNU revision.
-- `files/` — new project-authored source files, with their intended upstream paths documented.
-- `scripts/` — source preparation, patch validation, and reproducibility helpers.
+## Directory map
 
-## Source and licensing policy
+| Path | Purpose | Current contents |
+|---|---|---|
+| [patches/](patches/README.md) | Focused changes against a pinned upstream revision | Policy and review guidance only |
+| [files/](files/README.md) | Original files proposed for an upstream XNU tree | Provenance guidance only |
+| [scripts/](scripts/README.md) | Reproducible source and patch validation helpers | Safety and design guidance only |
+| [COMPATIBILITY_MATRIX.md](COMPATIBILITY_MATRIX.md) | Subsystem evidence and status | Initial unknowns |
+| [UPSTREAM.md](UPSTREAM.md) | Upstream source selection and provenance | No revision selected |
 
-- Obtain upstream XNU source from an authoritative public source and record the exact repository, revision, and retrieval date before basing changes on it.
-- XNU source is distributed under the Apple Public Source License (APSL) where its file notices specify that license. Preserve copyright and license notices, mark modifications, and review the applicable license before redistributing changes.
-- Do not assume the repository's root MIT license overrides XNU's file-level licensing.
-- Do not copy HakiOS patches, source files, or drivers into this project without reviewing their origin, license, notices, and compatibility.
-- Keep proprietary operating-system components, device firmware, keys, and personal device data out of this directory.
+## Upstream XNU areas to understand
 
-## Research sequence
+Apple's upstream README describes these major source areas:
 
-1. Identify and record a suitable upstream XNU revision.
-2. Review architecture and platform assumptions without claiming device support from ARM64 alone.
-3. Document the Moto G60 XT2135-2 hardware facts and unknowns.
-4. Propose small, independently reviewable changes only when evidence supports them.
-5. Validate patch applicability and build feasibility in a non-device test environment before considering any hardware experiments.
+- `osfmk/` — Mach-based kernel subsystems.
+- `bsd/` — BSD subsystems.
+- `iokit/` and `libkern/` — IOKit and related kernel C++ support.
+- `pexpert/` — platform-specific code, including interrupt handling and other platform services.
+- `libsa/` — kernel bootstrap code.
+- `config/`, `makedefs/`, and `SETUP/` — configuration and build support.
+- `tools/` — development, debugging, and profiling utilities.
 
-## Current limitations
+This is an orientation map, not a statement that each area needs modification for Moto G60.
 
-The Snapdragon 732G platform and the Moto G60 board require platform-specific support. No such support is implied by this scaffold. This project does not currently claim a bootable kernel or compatible driver set.
+## Project rules
+
+1. Pin an exact upstream commit before preparing any patch.
+2. Keep upstream source separate from MotoDarwin18-authored files.
+3. Record the source URL, commit, retrieval date, license, and modifications.
+4. Preserve all upstream copyright and license notices.
+5. Review each file's own license; the repository's root MIT license does not override third-party or file-level terms.
+6. Do not copy third-party patches or drivers without provenance and license review.
+7. Keep proprietary firmware, restore images, keys, credentials, and personal device data out of this repository.
+8. Treat ARM64 as an architecture prerequisite, not proof of board compatibility.
+
+## Research workflow
+
+1. Record the candidate source in [UPSTREAM.md](UPSTREAM.md).
+2. Compare the candidate's documented architecture and platform assumptions with [the platform requirements](../docs/SOC_PLATFORM_REQUIREMENTS.md).
+3. Track evidence and unknowns in [COMPATIBILITY_MATRIX.md](COMPATIBILITY_MATRIX.md).
+4. Propose a patch only when a specific, evidence-backed gap is identified.
+5. Validate source changes in an isolated development environment; this folder does not provide instructions for changing a phone.
+
+## Current assessment
+
+MotoDarwin18 is at the documentation and feasibility stage. There is no supported Moto G60 XNU kernel, boot path, or device driver set at this time.
+
+## Primary reference
+
+- Apple, [XNU source repository and README](https://github.com/apple-oss-distributions/xnu/blob/main/README.md).
