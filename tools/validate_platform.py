@@ -75,7 +75,7 @@ def validate_inventory(data: Any) -> tuple[list[str], list[str]]:
         seen.add(component_id)
 
         status = component.get("status")
-        if status not in ALLOWED_STATUSES:
+        if not isinstance(status, str) or status not in ALLOWED_STATUSES:
             errors.append(f"{prefix}.status must be one of {sorted(ALLOWED_STATUSES)}")
             continue
 
@@ -102,7 +102,7 @@ def validate_inventory(data: Any) -> tuple[list[str], list[str]]:
                 errors.append(f"{eprefix} must be an object")
                 continue
             scope = item.get("scope")
-            if scope not in ALLOWED_SCOPES:
+            if not isinstance(scope, str) or scope not in ALLOWED_SCOPES:
                 errors.append(f"{eprefix}.scope must be one of {sorted(ALLOWED_SCOPES)}")
             if scope == "exact_model":
                 has_exact_model_evidence = True
