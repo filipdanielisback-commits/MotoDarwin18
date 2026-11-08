@@ -86,3 +86,8 @@ Key distinction: Motorola confirms XT2135-2 / MC38C identity and regulatory radi
 The additional public-source review found Motorola's official Right to Repair documentation channel, but the linked partner portal could not be inspected and no XT2135-2-specific board assembly or revision was verified. Third-party listings describe broad XT2135-X / G60 / G40 service-document packages but do not authenticate MC38C-specific board population or map the phone to DVT1/DVT2.
 
 Motorola issue #574 confirms an Android kernel-source publication trail for a named XT2135-2 firmware build, not the firmware-to-XNU entry contract. Keep PCB revision, DVT overlay, exact BOM, firmware entry state, memory ownership and device-tree handoff unknown. See [XT2135-2 Firmware and Board-Revision Documentation Follow-up](../research/firmware/XT2135_2_FIRMWARE_BOARD_REVISION_FOLLOWUP.md).
+
+
+## XNU configuration dependency update — 2026-11-08
+
+The pinned XNU review identified further target-side unknowns beyond the boot-argument structure: the exact SecureDT producer schema, `arm-io`/SoC-base description, CPU-node semantics, interrupt-controller and timer node contracts, required `/chosen/dram-base` and `dram-size` properties, memory ownership, and the appropriate compile-time security/CPU/board configuration. Shared Hanoip Linux DTS clues do not establish these XNU contracts. No executable patch is justified. See [ARM64 Configuration-Dependent Startup Audit](../xnu/source-reviews/ARM64_CONFIGURATION_DEPENDENCY_AUDIT.md).
