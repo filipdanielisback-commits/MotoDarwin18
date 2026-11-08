@@ -6,7 +6,7 @@ This directory follows the useful organizational idea in HakiOS: group driver wo
 
 ## Subsystems
 
-| Directory | Responsibility | Initial status |
+| Directory | Responsibility | Current status |
 |---|---|---|
 | [wifi](wifi/README.md) | Wireless LAN | Research only |
 | [power](power/README.md) | Battery, charging, thermal and power-management boundaries | Research only |
@@ -18,7 +18,7 @@ This directory follows the useful organizational idea in HakiOS: group driver wo
 | [input](input/README.md) | Touch, buttons and input-event boundary | Research only |
 | [modem](modem/README.md) | Cellular modem and telephony boundary | Research only |
 | [net](net/README.md) | Network interfaces and common networking boundary | Research only |
-| [core](core/README.md) | Shared platform services and driver-independent support | Research only |
+| [core](core/README.md) | Shared platform services and driver-independent support | Host-side reference model; not hardware support |
 
 ## Evidence rules
 
@@ -33,9 +33,9 @@ Every future driver proposal must identify:
 
 ## Current project state
 
-- These directories contain architecture and research notes only.
-- No Moto G60 driver implementation is included here.
-- No hardware access, firmware interaction, device writes, or boot integration is performed by these documents.
+- `drivers/core/` contains an original Python host-side metadata and lifecycle model with unit tests.
+- The remaining subsystem directories contain research notes only; no Moto G60 hardware drivers are implemented.
+- No hardware access, firmware interaction, device writes, or boot integration is performed by the core model.
 - No HakiOS driver is copied or treated as a drop-in implementation.
 - The existing Hanoip evidence remains family-level unless an exact-model source establishes otherwise.
 
