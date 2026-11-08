@@ -178,3 +178,8 @@ Moto G60 family sources provide some encouraging clues about the underlying SoC 
 **Overall status: dependency inventory documented; target compatibility and implementation remain unproven.**
 
 *Project: MotoDarwin18*
+
+
+## Follow-up: Secure Device Tree requirements
+
+See [Secure Device Tree Requirements Analysis](SECURE_DEVICE_TREE_REQUIREMENTS.md) for the pinned SecureDT binary layout, early property consumers, mandatory `/chosen` DRAM properties, and the unresolved distinction between XNU SecureDT records and standard Linux FDT.
