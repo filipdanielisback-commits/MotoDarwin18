@@ -169,7 +169,7 @@ def validate_manifest(data: Any) -> None:
         {"manifest_version", "target", "boot_handoff", "device_tree", "memory_regions", "evidence"},
         "manifest",
     )
-    if obj["manifest_version"] != "1.0":
+    if _require_text(obj["manifest_version"], "manifest_version") != "1.0":
         raise ValidationError("manifest_version must be '1.0'")
 
     target = _require_object(obj["target"], "target")
@@ -177,7 +177,8 @@ def validate_manifest(data: Any) -> None:
     if target["model"] != "XT2135-2":
         raise ValidationError("target.model must be XT2135-2")
     _require_text(target["codename"], "target.codename")
-    if target["identity_status"] not in {"unknown", "documented", "confirmed"}:
+    identity_status = _require_text(target["identity_status"], "target.identity_status")
+    if identity_status not in {"unknown", "documented", "confirmed"}:
         raise ValidationError("target.identity_status is not recognized")
 
     handoff = _require_object(obj["boot_handoff"], "boot_handoff")
