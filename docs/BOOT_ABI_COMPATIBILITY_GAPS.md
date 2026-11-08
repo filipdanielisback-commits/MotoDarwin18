@@ -202,3 +202,8 @@ The pinned XNU startup contract is now substantially better understood, and the 
 The most important unanswered question is not simply whether the Snapdragon 732G is ARM64-capable. It is whether the exact XT2135-2 firmware, memory layout, device description and platform services can satisfy the selected XNU startup contract. Current public evidence does not answer that question.
 
 *Project: MotoDarwin18*
+
+
+## Related follow-up: early platform service dependencies
+
+See [XNU Early Platform Service Dependency Inventory](XNU_EARLY_PLATFORM_DEPENDENCIES.md) for the pinned startup call sequence, service classifications, Motorola evidence status, and priority research gaps.
