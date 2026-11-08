@@ -174,3 +174,24 @@ The exact-model Motorola declaration establishes the XT2135-2 identity and sever
 ---
 **Document:** `docs/DEVICE_INVENTORY.md`  
 **Project:** MotoDarwin18  
+
+
+14. Community kernel/device-tree evidence — provisional
+
+A public LineageOS kernel tree and Android device configuration for the shared Moto G40 Fusion / Moto G60 family (`hanoip`) provide additional engineering clues. These are not official schematics and do not yet identify the board-revision overlay used by a specific XT2135-2 unit.
+
+Candidate findings from that shared source tree:
+
+- GICv3 and Qualcomm PDC interrupt-controller descriptions.
+- Armv8 generic timer listed at 19.2 MHz and a memory-mapped timer block.
+- Embedded UFS and SD-card controller paths.
+- A Tianma ILI7807S 678-class 1080 × 2460 MIPI-DSI panel description, with 60/120 Hz modes.
+- An Ilitek SPI touchscreen node.
+- A WCN3990 Bluetooth node and a Qualcomm CLD3 WLAN module in the Android module list; the exact Wi-Fi combo-chip remains unidentified.
+- PM6150/PM6150L power-management descriptions and MC50 battery profiles.
+
+The device tree also defines reserved-memory carveouts, but these do not provide a complete physical DRAM map. All candidate findings require exact XT2135-2 board-revision correlation.
+
+Detailed evidence, direct source links, and limitations: [HANOIP_PLATFORM_EVIDENCE.md](../research/soc/HANOIP_PLATFORM_EVIDENCE.md).
+
+Current conclusion remains unchanged: hardware research only; no Darwin/XNU compatibility or working driver is established.
