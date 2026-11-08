@@ -1,12 +1,52 @@
 # Tools
 
-This directory is reserved for project-maintenance utilities.
+## Platform inventory validator
 
-Early utilities, if needed, should be limited to tasks such as:
+`validate_platform.py` is the first executable MotoDarwin18 research utility. It checks the structure and evidence discipline of the XT2135-2 platform inventory.
 
-- Checking documentation structure
-- Validating metadata and source references
-- Producing research summaries from explicitly supplied local data
-- Checking license and provenance records
+### Requirements
 
-Any future tool must include a purpose, usage notes, dependencies, and limitations. Keep utilities non-destructive and do not add scripts that modify phone partitions, boot configuration, or firmware.
+- Python 3.10 or newer
+- Python standard library only
+- No phone connection, ADB, Fastboot, network access, or elevated permissions
+
+### Run
+
+From the repository root:
+
+```sh
+python3 tools/validate_platform.py
+```
+
+Windows PowerShell:
+
+```powershell
+py -3 tools/validate_platform.py
+```
+
+### Run tests
+
+```sh
+python3 -m unittest discover -s tests -v
+```
+
+Windows PowerShell:
+
+```powershell
+py -3 -m unittest discover -s tests -v
+```
+
+### Validation rules
+
+- Requires the exact project target identifier, XT2135-2.
+- Requires entries for memory, interrupts, timers, storage, display, wireless, and power management.
+- Requires non-unknown entries to include a description and source evidence.
+- Accepts only documented evidence scopes and HTTPS source links.
+- Does not allow a component to be marked **confirmed** using only family-level or SoC-level evidence.
+- Requires unknown entries to use a null value rather than an unsupported claim.
+
+Warnings are expected where evidence is based on a shared community device tree rather than exact-model documentation.
+
+### Limitations
+
+This tool validates documentation structure and evidence labels only. It does not inspect hardware, resolve board revisions, infer register addresses, build XNU, or establish device compatibility. It is offline and read-only.
