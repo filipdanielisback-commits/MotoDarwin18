@@ -1,0 +1,32 @@
+{
+  "manifest_version": "1.0",
+  "target": {
+    "model": "XT2135-2",
+    "codename": "hanoip",
+    "identity_status": "documented"
+  },
+  "boot_handoff": {
+    "revision": null,
+    "version": null,
+    "phys_base": null,
+    "virt_base": null,
+    "mem_size": null,
+    "top_of_kernel_data": null
+  },
+  "device_tree": {
+    "status": "unknown",
+    "format": null,
+    "length": null,
+    "sha256": null,
+    "evidence": []
+  },
+  "memory_regions": [],
+  "evidence": [
+    {
+      "claim": "XT2135-2 is associated with the hanoip device family",
+      "status": "documented",
+      "scope": "device_family",
+      "url": "https://github.com/filipdanielisback-commits/MotoDarwin18/blob/main/research/soc/XT2135_2_IDENTITY.md"
+    }
+  ]
+}
