@@ -1,3 +1,21 @@
+## 2026-11-08 — XT2135-2 board-revision mapping audit
+
+### Findings
+
+- Motorola's conformity index confirms XT2135-2 / MC38C / moto g60 vision, distinct from XT2135-1 / MC38B.
+- The public community Android device tree describes a shared Moto G40 Fusion / Moto G60 hanoip target. Its README, BoardConfig.mk, and board-info.txt establish a software build identity (hanoip), not a physical PCB revision.
+- BoardConfig uses hanoip for OTA assertion and bootloader board-name strings and selects shared platform-family kernel configuration. Those strings do not identify DVT1 or DVT2.
+- The previously reviewed Hanoip kernel family source contains DVT1 and DVT2 overlay material, but no authoritative link from XT2135-2 / MC38C to either overlay was located.
+- A third-party service-document listing for the broad XT2135-X family is only an unverified lead. Its contents and authenticity were not established, and it does not map an exact XT2135-2 board revision.
+
+### Decision
+
+The exact regulatory model identity and shared software-family identity are confirmed. The physical board revision and DVT overlay mapping remain unknown. Do not select an overlay or make a DVT-specific kernel change.
+
+### Detailed evidence
+
+See [XT2135-2 Board-Revision Evidence Audit](../research/firmware/XT2135_2_BOARD_REVISION_AUDIT.md).
+
 ## 2026-11-08 — XT2135-2 public firmware/source provenance audit
 
 ### Question
