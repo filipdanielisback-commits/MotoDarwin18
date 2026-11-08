@@ -205,3 +205,10 @@ Added [Device Tree Property Compatibility Matrix](docs/DEVICE_TREE_PROPERTY_COMP
 The matrix records conceptual overlap for CPU topology, GICv3/PDC, timers, and memory descriptions while keeping exact Apple-style property matches and the XT2135-2 firmware handoff unknown. The mandatory `/chosen/dram-base` and `/chosen/dram-size` properties are not documented in the reviewed Hanoip evidence; “not observed” is not a claim that they are absent from the actual device tree.
 
 This remains a source/documentation milestone. No target tree, boot payload, or device configuration was generated or tested.
+
+
+## 13. XNULoader menu and pre-release specification — 2026-11-08
+
+Added [XNULoader Menu and Pre-release Specification](xnuloader/MENU_AND_PRERELEASE_SPEC.md). It records the proposed “Boot iOS 18” and “Boot Original Android” menu labels, the tentative Volume Up/Down navigation concept, explicit unknowns around input behavior, and a source-and-documentation-only first pre-release policy.
+
+The first pre-release is specified as **not bootable and not for installation**, with no `.img` or other device-installable artifact. The menu options are conceptual only. No loader implementation, XNU port, iOS 18 environment, Android-return mechanism, or target boot is claimed.
