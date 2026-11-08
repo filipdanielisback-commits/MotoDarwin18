@@ -54,6 +54,7 @@ def _evidence(value: Any, where: str) -> list[dict[str, Any]]:
         _keys(item, {"claim", "scope", "url"}, label)
         _text(item["claim"], f"{label}.claim")
         scope = item["scope"]
+        _text(scope, f"{label}.scope")
         if scope not in EVIDENCE_SCOPES:
             raise ValidationError(f"{label}.scope is not recognized")
         url = item["url"]
@@ -139,12 +140,14 @@ def validate_manifest(data: Any) -> None:
     _keys(target, {"model", "identity_status"}, "target")
     if target["model"] != "XT2135-2":
         raise ValidationError("target.model must be XT2135-2")
+    _text(target["identity_status"], "target.identity_status")
     if target["identity_status"] not in {"unknown", "documented", "confirmed"}:
         raise ValidationError("target.identity_status is not recognized")
 
     environment = _object(item["environment"], "environment")
     _keys(environment, {"name", "status"}, "environment")
     _text(environment["name"], "environment.name", nullable=True)
+    _text(environment["status"], "environment.status")
     if environment["status"] not in {"unknown", "identified"}:
         raise ValidationError("environment.status must be unknown or identified")
     if environment["status"] == "identified" and environment["name"] is None:
