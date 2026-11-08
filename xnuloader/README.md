@@ -15,6 +15,7 @@ This directory tracks the design questions for a possible independently develope
 | [scripts/](scripts/README.md) | Source-only validation helpers | No scripts |
 | [ARCHITECTURE.md](ARCHITECTURE.md) | Conceptual component responsibilities and boundaries | Initial research |
 | [HANDOFF_REQUIREMENTS.md](HANDOFF_REQUIREMENTS.md) | High-level information categories a kernel handoff must describe | Research checklist |
+| [HAKIOS_ARCHITECTURE_COMPARISON.md](HAKIOS_ARCHITECTURE_COMPARISON.md) | Comparison of HakiOS's public loader architecture with MotoDarwin18 research | Source analysis |
 | [COMPATIBILITY.md](COMPATIBILITY.md) | Platform and loader assumptions that remain unverified | Initial unknowns |
 
 ## What a loader is responsible for, conceptually
