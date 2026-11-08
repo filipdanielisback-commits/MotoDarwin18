@@ -42,3 +42,13 @@ The name is illustrative; it does not indicate that a patch exists or has been v
 - **Rejected:** proposal should not be used.
 
 A patch must not be described as Moto G60 support unless evidence and appropriate validation justify that statement.
+
+## Current documented proposals
+
+The following are **review documents, not executable patch files**:
+
+- [0001 — ARM64 early boot contract compatibility](proposals/0001-arm64-early-boot-contract-compatibility.md): records the unresolved XNU consumer / target producer contract. No concrete upstream source bug has yet been proven.
+- [0002 — ARM64 platform abstraction boundary](proposals/0002-arm64-platform-abstraction-design.md): documents separation between generic ARM64, XNU platform services, SoC facts, and exact board evidence.
+- [0003 — XT2135-2 platform evidence change](proposals/0003-xt2135-2-platform-evidence-change.md): records exact-model identity and hanoip-family clues without promoting them to confirmed board facts.
+
+These proposals do not modify XNU source, implement a driver, or enable device boot. A real source patch must wait until a specific incompatibility and exact-target requirement are established.
