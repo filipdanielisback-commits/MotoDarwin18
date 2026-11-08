@@ -195,3 +195,10 @@ The device tree also defines reserved-memory carveouts, but these do not provide
 Detailed evidence, direct source links, and limitations: [HANOIP_PLATFORM_EVIDENCE.md](../research/soc/HANOIP_PLATFORM_EVIDENCE.md).
 
 Current conclusion remains unchanged: hardware research only; no Darwin/XNU compatibility or working driver is established.
+
+
+## Evidence reconciliation — 2026-11-08
+
+The [XT2135-2 confirmed platform facts and XNU compatibility review](../research/firmware/XT2135_2_CONFIRMED_PLATFORM_FACTS.md) now separates exact-model Motorola declaration facts, Motorola Android kernel-source provenance, secondary/reported specifications, and shared hanoip-family clues.
+
+In particular, Snapdragon 732G, RAM/storage configurations and consumer hardware specifications should not be presented as facts established by the Motorola XT2135-2 declaration. GICv3/PDC, timer, UFS, panel, touch, WLAN, PMIC, audio and other detailed hardware entries remain shared-family source clues until exact board-revision evidence is available. The physical board revision and DVT1/DVT2 mapping remain unknown.
